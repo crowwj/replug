@@ -10,7 +10,7 @@ body{
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url('img/dragon-scales.svg');
+    background-image: url('img/dragon-scales.svg'); 
 }
 
 
@@ -64,6 +64,8 @@ body{
 .Registrodeusuario{
     background: white;
     padding: 30px;
-    
     border-radius: 10px;
 }
+
+
+

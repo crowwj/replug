@@ -15,4 +15,10 @@ Route::get('/registrousuario', function () {
     return view('registrousuario');
 });
 
+
+Route::get('/contenido', function () {
+    return view('contenido');
+});
+
+
 Route::get('/productos', [ProductoController::class, 'index']);

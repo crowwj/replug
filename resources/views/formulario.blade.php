@@ -1,10 +1,18 @@
+@extends('inicio') 
+
+@section('login-contenido') 
+    ...
+@endsection
+
+
 <!--Cabezero -->
     <div class="logo-container"> <h1 class="logo-text">MERCADO POBRE</h1> </div>
 <!--Formulario: Capta los user y password -->
 <form class="formulario" >
+  <br><br>
   <div class="mb-3">
     <label for="usuario" class="form-label" ></label>
-    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+    <input type="text" class="form-control" id="usuario" placeholder="Usuario"> 
   </div>
   <div class="mb-3">
     <label for="contra" class="form-label"></label>
