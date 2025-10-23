@@ -8,8 +8,8 @@
 </head>
 <body>
 
-//Este es la mera barra de navegacion
 
+    <!-- Esta es la mera barra de navegacion-->
  <div class="navegador">
     <nav class="navegacion">
         <ul>
@@ -33,5 +33,9 @@
         </ul>
     </nav>
  </div>
+
+    <!--Cierre Sesion-->
+    <button>Cerrar Sesion</button>
+
 </body>
 </html>
