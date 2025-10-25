@@ -24,10 +24,6 @@
         <input type="text" class="form-control" id="registronombre" name="nombre" placeholder="Nombre">
     </div>
     <div class="mb-3">
-        <label for="apellido" class="form-label"></label>
-        <input type="text" class="form-control" id="registroapellido" name="apellido" placeholder="Apellido">
-    </div>
-    <div class="mb-3">
         <label for="contraseña" class="form-label"></label>
         <input type="password" class="form-control" id="registrocontrasena" name="contrasena" placeholder="Contraseña">
     </div>
