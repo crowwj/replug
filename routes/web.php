@@ -13,7 +13,7 @@ Route::get('/inicio', function () {
 });
 
 Route::get('/contenido', function () {
-    return view('contenido');
+    return view('contenido.contenido');
 });
 
 // Registro
