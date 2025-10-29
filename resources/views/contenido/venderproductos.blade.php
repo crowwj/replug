@@ -35,7 +35,30 @@
         <input type="file" class="form-control" id="imagenProducto" name="imagenProducto">
     </div>
     <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Vender productos</button>
-    <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Ver requisitos del producto</button> 
+    <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Requisitos
+</button>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Requisitos en la publicacion de venta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>1:El nombre debe tener relación con lo que vendes. <br>
+           2:Debes describir a detalle lo que vendes (Medidas, especificaciones, peso, tiempo de uso, fecha de creación) <br>
+           3:La imagen debe ser en formato png o jpg, con fondo blanco, el producto debe ser visible sin ningún tipo de problema. <br>
+           4:Agregar la cantidad correcta de stock disponible de dicho producto.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--<button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Ver requisitos del producto</button> -->
     <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Regresar al inicio</button>
 
 </form>
