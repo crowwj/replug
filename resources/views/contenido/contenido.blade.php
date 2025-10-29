@@ -77,7 +77,15 @@
         <li><a class="dropdown-item" href="#">Pedidos y compras</a></li>
         <li><a class="dropdown-item" href="#">Direcciones</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+        <li>
+            <a class="dropdown-item" href="{{ route('cerrarsesion') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+            <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </li>
     </ul>
 </nav>
 
