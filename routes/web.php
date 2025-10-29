@@ -9,6 +9,12 @@ Route::get('/inicio', function () {
 Route::get('/contenido', function () {
     return view('contenido.contenido');
 });
+Route::get('/venderproductos', function () {
+    return view('contenido.venderproductos');
+});
+Route::get('/micuenta', function () {
+    return view('contenido.micuenta');
+});
 // Registro
 Route::get('/registrousuario', [UsuarioController::class, 'RegistroFormulario'])->name('registroform');
 Route::post('/registrousuario', [UsuarioController::class, 'Registro'])->name('registro');

@@ -9,6 +9,7 @@
 </head>
 <body>
 <!--SOLAMENTE LA NABVAR -->
+
 <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
     <div class="offcanvas-header bg-dark text-white p-3">
         <h5 class="offcanvas-title" id="menuLateralLabel">Menú</h5>
@@ -61,6 +62,12 @@
                    aria-label="Search"/>
         </form>
     </div>
+    <div class="carrito">
+        <a href=""> Mi carrito </a>
+    </div>
+    <div class="vender">
+         <a href="">Vender Producto</a>
+    </div>
     <a class="nav-link dropdown-toggle account-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Mi Cuenta
     </a>
@@ -73,6 +80,12 @@
         <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
     </ul>
 </nav>
+
+
+<div class="mostrarproductos">
+    <h2>Lo mas nuevo</h2>
+</div>
+
 
 <!-- CONTENIDO -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>

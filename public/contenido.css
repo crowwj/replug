@@ -51,7 +51,6 @@
     background-color: transparent !important;
     height: 100%; 
     padding: 0; 
-    
     font-size: 16px;
     color: #495057;
 }
@@ -84,4 +83,36 @@
 .menu-list-custom .list-group-item:hover {
     background-color: rgba(255, 255, 255, 0.1); 
     cursor: pointer;
+}
+.vender a{
+    color: aliceblue;
+    text-decoration: none;
+}
+.carrito a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.carrito{
+    background-color: rgb(82, 11, 149);
+    padding: 10px;
+    border-radius: 10px;  
+}
+.producto-cabeza{
+    background-color: #ffffff;
+    width: 100%;
+}
+.formulario-form{
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.bodyproductos{
+     background-image: url('img/peak_background\ \(1\).svg');
+     background-size: cover;         
+     background-repeat: no-repeat;    
+     background-position: center center; 
+     background-attachment: fixed;    
 }
