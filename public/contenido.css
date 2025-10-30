@@ -130,3 +130,18 @@
     padding: 10px;
     margin-top: 30px;
 }
+.Pregunta a{
+    text-decoration: none;
+    color: black;
+}
+.Pregunta {
+    border: 10px solid;
+    border-radius: 10px;
+    border-color: purple ;
+    border-width: 10px;
+    margin: 10px;
+}
+
+.Ayuda{
+    display: flex;
+}

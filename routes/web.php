@@ -41,5 +41,8 @@ Route::middleware(['web'])->group(function () {
         }
         return view('contenido.datoscuenta');
     });
+    Route::get('/ayuda', function () {
+        return view('contenido.ayuda');
+    });
 
 });
