@@ -43,40 +43,42 @@ class UsuarioController extends Controller
     }
 
     public function InicioSesion(Request $request)
-{
+    {
     $credentials = $request->validate([//validamos datos resuperados
         'correo' => ['required', 'email'],
         'contrasena' => ['required']
-    ]);
+        ]);
 
-    if (Auth::attempt([//compara en la bd
+        if (Auth::attempt([//compara en la bd
         'correo' => $credentials['correo'],
         'password' => $credentials['contrasena'],
-    ])) {
+        ])) {
 
-        $request->session()->regenerate();//regenera token de sesion
+                $request->session()->regenerate();//regenera token de sesion
 
-        $user = auth()->user();//fuerza la creacion de usuario
-        Auth::login($user, true);        // <--- clave
-        $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
-        //dd(auth()->user(), session()->all());
-        return redirect()->route('contenido');
-    }
+                $user = auth()->user();//fuerza la creacion de usuario
+                Auth::login($user, true);        // <--- clave
+                $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
+                //dd(auth()->user(), session()->all()); debug
+                return redirect()->route('contenido');
+            }
 
-    // Si falla el login
+    // datos incorrectos
     return back()->withErrors([
         'correo' => 'Las credenciales no coinciden con nuestros registros.',
     ])->withInput($request->except('contrasena'));
-}
+    }
 
     public function CerrarSesion(Request $request)
     {
+
     Auth::logout();
 
-    $request->session()->invalidate();
+    $request->session()->invalidate();// invalida token de sesion
 
-    $request->session()->regenerateToken();//regenera toquen encargado de recolectar datos en forms (CSRF)
+    $request->session()->regenerateToken(); //regenera toquen encargado de recolectar datos en forms (CSRF)
 
     return redirect()->route('login')->with('success', 'Sesión cerrada correctamente');
+    
     }
 }
