@@ -56,11 +56,9 @@ class UsuarioController extends Controller
 
                 $request->session()->regenerate();//regenera token de sesion
 
-                $user = auth()->user();//fuerza la creacion de usuario
-                Auth::login($user, true);        // <--- clave
                 $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
                 //dd(auth()->user(), session()->all()); debug
-                return redirect()->route('contenido');
+                return redirect()->route('productosfiltro');
             }
 
     // datos incorrectos

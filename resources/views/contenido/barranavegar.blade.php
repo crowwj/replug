@@ -21,10 +21,10 @@
 
             <li class="list-group-item bg-dark text-white fw-bold mt-3">CATEGORÍAS</li>
             <li class="list-group-item">
-                <a href="#" class="text-white text-decoration-none">PELÍCULAS</a>
+                <a href="{{ route('productosfiltro', ['categoria' => '2']) }}" class="{{ request('categoria') == '2' ? 'activa' : '' }}">ELECTRONICOS</a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="text-white text-decoration-none">JUGUETES</a>
+                <a href="{{ route('productosfiltro', ['categoria' => '1']) }}" class="{{ request('categoria') == '1' ? 'activa' : '' }}">JUGUETES</a>
             </li>
             <li class="list-group-item bg-dark text-white fw-bold mt-3 border-top border-secondary">AYUDA Y CONFIGURACIÓN</li>
             <li class="list-group-item">

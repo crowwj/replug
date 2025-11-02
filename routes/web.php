@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ProductoController;
 
 Route::middleware(['web'])->group(function () {
-
+    
     // Login / registro
     Route::get('/', [UsuarioController::class, 'InicioSesionFormulario'])->name('login');
     Route::post('/', [UsuarioController::class, 'InicioSesion'])->name('InicioSesion');
@@ -14,12 +15,8 @@ Route::middleware(['web'])->group(function () {
 
     Route::post('/logout', [UsuarioController::class, 'CerrarSesion'])->name('cerrarsesion');
     // Rutas protegidas
-    Route::get('/contenido', function () {
-        if (!session()->has('id_usuario')) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-        }
-        return view('contenido.contenido');
-    })->name('contenido');
+    //Productos
+   Route::get('/contenido', [ProductoController::class, 'index'])->name('productosfiltro');
 
     Route::get('/venderproductos', function () {
         if (!session()->has('id_usuario')) {
