@@ -48,24 +48,20 @@ class UsuarioController extends Controller
         'correo' => ['required', 'email'],
         'contrasena' => ['required']
         ]);
-
         if (Auth::attempt([//compara en la bd
         'correo' => $credentials['correo'],
         'password' => $credentials['contrasena'],
         ])) {
-
                 $request->session()->regenerate();//regenera token de sesion
-
                 $user = auth()->user();//fuerza la creacion de usuario
                 Auth::login($user, true);        // <--- clave
                 $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
                 //dd(auth()->user(), session()->all()); debug
                 return redirect()->route('contenido');
             }
-
     // datos incorrectos
     return back()->withErrors([
-        'correo' => 'Las credenciales no coinciden con nuestros registros.',
+        'correo' => 'Las credenciales no coinciden.',
     ])->withInput($request->except('contrasena'));
     }
 

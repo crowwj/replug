@@ -3,8 +3,6 @@
 @section('login-contenido') 
     ...
 @endsection
-
-
 <!--Cabezero -->
     <div class="logo-container"> <h1 class="logo-text">MERCADO POBRE</h1> </div>
 <!--Formulario: Capta los user y password -->
@@ -24,5 +22,15 @@
   </div>
   <div class="cuenta_nueva">
   <p>No tienes cuenta? <a href="{{ route('registroform') }}">registrate</a></p>
+   @error('correo')
+  <div class="invalid-feedback" style="display: block;">
+            {{ $message }}
+  </div>
+  @enderror
+  @if (session('success'))
+  <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+  </div>
+  @endif
   </div>
 </form>
