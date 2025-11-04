@@ -11,7 +11,7 @@
   <br><br>
   <div class="mb-3">
     <label for="usuario" class="form-label" ></label>
-    <input type="text" class="form-control" id="usuario" name="correo" placeholder="Correo Electronico"> 
+    <input type="email" class="form-control" id="usuario" name="correo" placeholder="Correo Electronico"> 
   </div>
   <div class="mb-3">
     <label for="contra" class="form-label"></label>
