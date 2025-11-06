@@ -11,13 +11,13 @@
 @include('contenido.barranavegar')
 <div class="mostrarproductos">
     <h2>Lo mas nuevo</h2>
-    <h2>✅ Productos Recibidos del Controlador:</h2>
+    <h2>✅ Productos</h2>
 
 @if (!empty($productos))
     
     <div style="border: 2px solid green; padding: 15px;">
         
-        {{-- Aquí se inicia el bucle FOREACH para iterar sobre la colección $productos --}}
+        {{-- se desglosa la lista $productos en un foreach  --}}
         @foreach ($productos as $producto)
             
             <div style="border-bottom: 1px dashed #ccc; padding: 10px; margin-bottom: 10px;">
@@ -30,13 +30,9 @@
             </div>
             
         @endforeach
-        
     </div>
-
 @else
-    
-    <p style="color: red; font-weight: bold;">❌ No se recibieron productos o la lista está vacía.</p>
-    
+    <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
 @endif
 
 </div>

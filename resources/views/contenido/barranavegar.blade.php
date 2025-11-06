@@ -51,6 +51,20 @@
                    aria-label="Search"/>
         </form>
     </div>
+        <form action="{{ route('productosfiltro') }}" method="GET">
+            <select name="categoria" id="filtroCategoriaBusqueda" style="padding: 8px; border-radius: 4px;" onchange="this.form.submit()">
+                    
+                    <option value="" {{ empty(old('categoria', $categoriaToken)) ? 'selected' : '' }}>Todas las Categorías</option> 
+                    
+                    @foreach ($categorias as $categoria)
+                        
+                    <option value="{{ $categoria->id_categoria }}" {{ old('categoria', $categoriaToken) == $categoria->id_categoria ? 'selected' : '' }}>
+                    {{ $categoria->nombre }} {{-- Se mostrara el valor de nombre que tiene el registro(categoria) de la lista de registros(categorias) --}}
+                    </option>
+                    @endforeach
+                    
+            </select>
+        </form>
     <div class="carrito">
         <a href=""> Mi carrito </a>
     </div>
