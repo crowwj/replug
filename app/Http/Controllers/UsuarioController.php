@@ -58,7 +58,7 @@ class UsuarioController extends Controller
 
                 $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
                 //dd(auth()->user(), session()->all()); debug
-                return redirect()->route('productosfiltro');
+                return redirect()->route('productosbusqueda');
             }
 
     // datos incorrectos
