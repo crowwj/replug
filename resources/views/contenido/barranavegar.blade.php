@@ -21,10 +21,10 @@
 
             <li class="list-group-item bg-dark text-white fw-bold mt-3">CATEGORÍAS</li>
             <li class="list-group-item">
-                <a href="{{ route('productosfiltro', ['categoria' => '2']) }}" class="{{ request('categoria') == '2' ? 'activa' : '' }}">ELECTRONICOS</a>
+                <a href="{{ route('productosbusqueda', ['categoriaToken' => '2']) }}" class="{{ request('categoriaToken') == '2' ? 'activa' : '' }}">ELECTRONICOS</a>
             </li>
             <li class="list-group-item">
-                <a href="{{ route('productosfiltro', ['categoria' => '1']) }}" class="{{ request('categoria') == '1' ? 'activa' : '' }}">JUGUETES</a>
+                <a href="{{ route('productosbusqueda', ['categoriaToken' => '1']) }}" class="{{ request('categoriaToken') == '1' ? 'activa' : '' }}">JUGUETES</a>
             </li>
             <li class="list-group-item bg-dark text-white fw-bold mt-3 border-top border-secondary">AYUDA Y CONFIGURACIÓN</li>
             <li class="list-group-item">
@@ -44,13 +44,29 @@
             <img src="{{ asset('img/menu.png') }}" alt="Menú">
         </button>
         
-        <form class="d-flex search-form-pill" role="search">
+        <form action="{{ route('productosbusqueda') }}" method="get" class="d-flex search-form-pill" role="search">
             <input class="form-control search-input-pill" 
                    type="search" 
                    placeholder="Buscar productos..." 
-                   aria-label="Search"/>
+                   aria-label="Search"
+                   name = "busqueda"/>
+            <input type="hidden" name="categoriaToken" value="{{ $categoriaToken }}"/>
         </form>
     </div>
+        <form action="{{ route('productosbusqueda') }}" method="get">{{-- combo de categorias junto a la barra --}}
+            <select name="categoriaToken" id="filtroCategoriaBusqueda" style="padding: 8px; border-radius: 4px;" onchange="this.form.submit()">
+                    
+                    <option value="" {{ empty(old('categoria', $categoriaToken)) ? 'selected' : '' }}>Todas las Categorías</option> 
+                    
+                    @foreach ($categorias as $categoria)
+                        
+                    <option value="{{ $categoria->id_categoria }}" {{ old('categoria', $categoriaToken) == $categoria->id_categoria ? 'selected' : '' }}>
+                    {{ $categoria->nombre }} {{-- Se mostrara el valor de nombre que tiene el registro(categoria) de la lista de registros(categorias) --}}
+                    </option>
+                    @endforeach
+                    
+            </select>
+        </form>
     <div class="carrito">
         <a href=""> Mi carrito </a>
     </div>

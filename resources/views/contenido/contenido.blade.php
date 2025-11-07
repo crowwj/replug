@@ -11,7 +11,7 @@
 @include('contenido.barranavegar')
 <div class="mostrarproductos">
     <h2>Lo mas nuevo</h2>
-    <h2>✅ Productos Recibidos del Controlador:</h2>
+    <h2>✅ Productos</h2>
 
 @if (!empty($productos))
     
@@ -30,13 +30,9 @@
             </div>  
             
         @endforeach
-        
     </div>
-
 @else
-    
-    <p style="color: red; font-weight: bold;">❌ No se recibieron productos o la lista está vacía.</p>
-    
+    <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
 @endif
 
 </div>
