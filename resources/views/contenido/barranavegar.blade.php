@@ -20,12 +20,11 @@
             </li>
 
             <li class="list-group-item bg-dark text-white fw-bold mt-3">CATEGORÍAS</li>
-            <li class="list-group-item">
-                <a href="{{ route('productosbusqueda', ['categoriaToken' => '2']) }}" class="{{ request('categoriaToken') == '2' ? 'activa' : '' }}">ELECTRONICOS</a>
-            </li>
-            <li class="list-group-item">
-                <a href="{{ route('productosbusqueda', ['categoriaToken' => '1']) }}" class="{{ request('categoriaToken') == '1' ? 'activa' : '' }}">JUGUETES</a>
-            </li>
+                @foreach ($categorias as $categoria) {{--Listado decategorias en la pestana desplegable de la izquierda--}}
+                <li class="list-group-item">
+                    <a href="{{ route('productosbusqueda', ['categoriaToken' => $categoria->id_categoria ]) }}" class="{{ request('categoriaToken') == $categoria->id_categoria ? 'activa' : '' }}">{{ $categoria->nombre }}</a>
+                </li>
+                @endforeach
             <li class="list-group-item bg-dark text-white fw-bold mt-3 border-top border-secondary">AYUDA Y CONFIGURACIÓN</li>
             <li class="list-group-item">
                 <a href="#" class="text-white text-decoration-none">CONFIGURACION</a>
