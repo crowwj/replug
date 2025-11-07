@@ -145,3 +145,25 @@
 .Ayuda{
     display: flex;
 }
+.productosVisual{
+    display: flex; 
+    gap: 20px; 
+    padding: 20px; 
+    overflow-x: auto;
+}
+.productosCuadros{
+    flex: 0 0 220px; 
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.productosImagen{
+    height: 150px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px;
+}

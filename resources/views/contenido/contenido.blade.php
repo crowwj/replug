@@ -11,29 +11,56 @@
 @include('contenido.barranavegar')
 <div class="mostrarproductos">
     <h2>Lo mas nuevo</h2>
-    <h2>✅ Productos</h2>
-
+    <h2>Productos (test)</h2>
 @if (!empty($productos))
-    
-    <div style="border: 2px solid green; padding: 15px;">
-        
-        {{-- Aquí se inicia el bucle FOREACH para iterar sobre la colección $productos --}}
+    <div class="productosVisual"> 
+        {{--no x el qlo no--}}
         @foreach ($productos as $producto)    
-            
-            <div style="border-bottom: 1px dashed #ccc; padding: 10px; margin-bottom: 10px;">
-                
-                {{-- Muestra la clave y el valor del array o la propiedad del objeto --}}
-                <p><strong>Nombre:</strong> {{ $producto['nombre'] ?? $producto->nombre }}</p>
-                <p><strong>Precio:</strong> ${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
-                <p><strong>Categoría:</strong> {{ $producto['categoria'] ?? $producto->categorias_id_categoria }}</p>
-            
-            </div>  
-            
+            <div class="productosCuadros">
+                <div class="productosImagen">
+                    <img src="{{ $producto->imagen_url ?? 'placeholder.png' }}" 
+                        alt="{{ $producto['nombre'] ?? $producto->nombre }}" 
+                        style="max-height: 100%; max-width: 100%; object-fit: contain;">
+            </div>
+                {{-- Mostrar Clave, nombre y precio del producto--}}
+                <p style="font-size: 14px; height: 3em; overflow: hidden; margin-bottom: 5px;">{{ $producto['nombre'] ?? $producto->nombre }}</p>
+                <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px;">Precio: ${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
+                <p style="font-size: 12px; color: green; border: 1px solid green; padding: 2px 5px; border-radius: 4px; display: inline-block;">Categoría: {{ $producto['categoria'] ?? $producto->categorias_id_categoria }}</p>
+                <br>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-producto-{{ $producto->id ?? $producto['id'] }}" style="background:rgb(82, 11, 149); border: none;">
+                Ver
+                </button>
+                <div class="modal fade" id="modal-producto-{{ $producto->id ?? $producto['id'] }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-label-{{ $producto->id ?? $producto['id'] }}" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modal-label-{{ $producto->id ?? $producto['id'] }}"> <?php echo $producto['nombre'] ?? $producto->nombre; ?></h1>
+                                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+                        <p>asdasdasdasdasdasdda asdasdasdasdda asdasdasdasdda asdasdasdasdda asdasdasdasdda asdasdasdasdda asdasdasdasdda asdasdasdasddaasdasdasdasdda</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>    
         @endforeach
     </div>
+
+
+
+
 @else
     <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
 @endif
+
+
 
 </div>
 <!-- CONTENIDO -->
