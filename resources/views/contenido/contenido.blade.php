@@ -24,7 +24,6 @@
                     {{-- Mostrar Clave, nombre y precio del producto--}}
                     <p style="font-size: 14px; height: 3em; overflow: hidden; margin-bottom: 5px;">{{ $producto['nombre'] ?? $producto->nombre }}</p>
                     <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px;">Precio: ${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
-                    <p style="font-size: 12px; color: green; border: 1px solid green; padding: 2px 5px; border-radius: 4px; display: inline-block;">Categoría: {{ $producto['categoria'] ?? $producto->categorias_id_categoria }}</p>
                     <br>
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-producto-{{ $producto->id_producto ?? $producto['id_producto'] }}" style="background:rgb(82, 11, 149); border: none;">
