@@ -54,6 +54,5 @@ class ProductoController extends Controller
         $productos = $consultaproductos->paginate(15);
         $categorias = Categorias::select('id_categoria', 'nombre')->get();
         return view('contenido.contenido', compact('productos', 'categorias', 'categoriaToken'));
-
     }
 }

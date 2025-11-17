@@ -20,7 +20,7 @@
             </li>
 
             <li class="list-group-item bg-dark text-white fw-bold mt-3">CATEGORÍAS</li>
-                @foreach ($categorias as $categoria) {{--Listado decategorias en la pestana desplegable de la izquierda--}}
+                @foreach ($categorias as $categoria) {{--Listado de categorias en la pestana desplegable de la izquierda--}}
                 <li class="list-group-item">
                     <a href="{{ route('productosbusqueda', ['categoriaToken' => $categoria->id_categoria ]) }}" class="{{ request('categoriaToken') == $categoria->id_categoria ? 'activa' : '' }}">{{ $categoria->nombre }}</a>
                 </li>
@@ -72,6 +72,7 @@
     <div class="vender">
          <a href="">Vender Producto</a>
     </div>
+
     <a class="nav-link dropdown-toggle account-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Mi Cuenta
     </a>
