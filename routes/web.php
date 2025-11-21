@@ -40,6 +40,9 @@ Route::middleware(['web'])->group(function () {
         return view('contenido.datoscuenta');
     });
     Route::get('/ayuda', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
         return view('contenido.ayuda');
     });
 

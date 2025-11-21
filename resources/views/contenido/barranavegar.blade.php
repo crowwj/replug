@@ -35,6 +35,7 @@
         </ul>
     </div>
 </div>
+
 <nav class="barra">
     <div class="search-pill-container">
         <button class="btn menu-btn-pill" type="button" 
