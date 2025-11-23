@@ -180,3 +180,12 @@
     rgba(9, 6, 6, 1) 100%
   )
 }
+
+
+.barra-ayuda{
+    background-color: #6a0dad; 
+    padding: 15px 25px;
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}

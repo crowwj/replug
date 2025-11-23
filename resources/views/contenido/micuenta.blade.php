@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    @include('contenido.barranavegar')
+   {{--   @include('contenido.barranavegar')  --}}
 
     <div class="titulo">
       <h2>Mi cuenta</h2>

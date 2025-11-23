@@ -8,7 +8,40 @@
   </head>
   
   <body>
-    @include('contenido.barranavegar')
+   {{-- @include('contenido.barranavegar') --}} 
+  
+   {{-- Navbar para el apartado de ayuda  --}}
+
+
+   <nav class="barra-ayuda">
+    <a href="" style="text-decoration: none; color: white;">Inicio</a>
+      <div>
+        <a class="nav-link dropdown-toggle account-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Mi Cuenta
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Datos de tu cuenta</a></li>
+        <li><a class="dropdown-item" href="#">Seguridad e inicio de sesion</a></li>
+        <li><a class="dropdown-item" href="#">Pedidos y compras</a></li>
+        <li><a class="dropdown-item" href="#">Direcciones</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <a class="dropdown-item" href="{{ route('cerrarsesion') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar sesión
+            </a>
+            <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </li>
+    </ul>
+    </div>
+   </nav>
+   {{-- Fin --}}
+
+
+
+
     <h1 style="margin: 10px;">AYUDA</h1>
 
     <div class="Ayuda">
