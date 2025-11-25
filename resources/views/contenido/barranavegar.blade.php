@@ -67,7 +67,7 @@
                     
             </select>
         </form>
-    <div class="carrito">
+    <div class="carrito2">
         <a href=""> Mi carrito </a>
     </div>
     <div class="vender">

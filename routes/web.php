@@ -31,7 +31,7 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.micuenta');
-    });
+    }) -> name('micuenta');
 
      Route::get('/datoscuenta', function () {
         if (!session()->has('id_usuario')) {
@@ -44,6 +44,19 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.ayuda');
+    });
+
+    Route::get('/direcciones', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+        return view('contenido.direcciones');
+ });
+     Route::get('/carrito', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+        return view('contenido.carrito');
     });
 
 });

@@ -19,19 +19,19 @@
                         <div class="productosCuadros">
                             <div class="productosImagen">
                                 <img src="{{ asset('storage/'.$producto->imagen) }}"  style="max-height: 100%; max-width: 100%; object-fit: contain;">
-                            </div>
+                             </div>
                             {{-- Mostrar Clave, nombre y precio del producto--}}
-                            <p style="font-size: 15px; height: 3em; overflow: hidden; margin-bottom: 5px;">{{ $producto['nombre'] ?? $producto->nombre }}</p>
-                            <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px;">${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
-                            <br>
-
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-unico-producto" data-nombre="{{ $producto->nombre }}" 
-                            data-precio="{{ number_format($producto->precio, 2) }}" data-descripcion="{{ $producto->descripcion }}" data-imagen="{{ asset('storage/'.$producto->imagen) }}" style="background:rgb(82, 11, 149); border: none;">
-                            Ver
+                                <p style="font-size: 15px; height: 3em; overflow: hidden; margin-bottom: 5px;">{{ $producto['nombre'] ?? $producto->nombre }}</p>
+                                <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px;">${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
+                                <br>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-unico-producto" data-nombre="{{ $producto->nombre }}" data-precio="{{ number_format($producto->precio, 2) }}" data-descripcion="{{ $producto->descripcion }}" data-imagen="{{ asset('storage/'.$producto->imagen) }}" style="background:rgb(82, 11, 149); border: none;">
+                                 Ver
                             </button>
                         </div>
                     </div>  
                 @endforeach
+
+
                 {{--  El modal de los productos --}}
                 <div class="modal fade" id="modal-unico-producto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-label-producto" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
@@ -86,6 +86,8 @@
         @endif
     </div>
     <!-- CONTENIDO -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
     </body>
 </html>

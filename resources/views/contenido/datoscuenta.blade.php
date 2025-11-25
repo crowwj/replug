@@ -10,10 +10,9 @@
   </head>
 
   <body>
-  @include('contenido.barranavegar')
+  {{-- @include('contenido.barranavegar') --}} 
 
     <div class="contenido-contenidocuenta">
-      <h3>Mi cuenta > Datos de tu cuenta</h3>
       <h2>Datos de tu cuenta</h2>
       <div class="card">
         <div class="card-header">
@@ -25,6 +24,9 @@
         </div>
       </div>
     </div>
+
+
+    
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

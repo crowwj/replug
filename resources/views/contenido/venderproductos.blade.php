@@ -9,6 +9,10 @@
   </head>
   <body class="bodyproductos">
 
+    <nav class="barra-ayuda">
+      <a href="" style="text-decoration: none; color: white;">Inicio</a>   
+    </nav>
+
 
   <!--Vender productos -->
   <div class="formularioproductos">
@@ -73,8 +77,9 @@
       </div>
 
       <!--<button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Ver requisitos del producto</button> -->
-      <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Regresar al inicio</button>
     </form>
+
+    
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
