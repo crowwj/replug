@@ -23,10 +23,7 @@
             <li><a class="dropdown-item" href="#">Direcciones</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
-                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Cerrar sesión
-                </a>
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
                 <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
                     @csrf
                 </form>
@@ -34,16 +31,13 @@
           </ul>
       </div>
     </nav>
-   {{-- Fin --}}
-
     <div class="direcciones">
       <div class="card text-center w-50 mx-auto">
-        {{-- hey, aqui se pondra la palabra clave --}}
+    
 
         <div class="card-header"> <span>Direcciones</span></div>
 
         <div class="card-body">
-          {{-- AQUI VAN VARIABLES DONDE SE PONDRA LA DIRECCIONES --}}
         </div>
         <div class="Entrada">
           <div class="input-group mb-3">
