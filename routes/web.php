@@ -16,15 +16,11 @@ Route::middleware(['web'])->group(function () {
     Route::post('/logout', [UsuarioController::class, 'CerrarSesion'])->name('cerrarsesion');
     // Rutas protegidas
     //Productos
-   //Route::get('/contenido', [ProductoController::class, 'index'])->name('productosfiltro');
    Route::get('/contenido', [ProductoController::class, 'busquedas'])->name('productosbusqueda');
 
-    Route::get('/venderproductos', function () {
-        if (!session()->has('id_usuario')) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-        }
-        return view('contenido.venderproductos');
-    });
+    Route::get('/venderproductos', [ProductoController::class, 'categorias'])->name('categorias');
+
+    Route::post('/venderproductos', [ProductoController::class, 'agregarproducto'])->name('producto+');
 
     Route::get('/micuenta', function () {
         if (!session()->has('id_usuario')) {

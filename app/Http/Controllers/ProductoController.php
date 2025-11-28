@@ -8,25 +8,7 @@ use App\Models\Categorias;
 
 class ProductoController extends Controller
 {
-    /*public function filtros(Request $request)
-    {
-    if (!session()->has('id_usuario')) {
-        return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-    }
-    //obtiene el filtro categoria de la url por el metodo get. la varible sera null si no hay un filtro, mostrara todos los productos pues.
-    $categoriaToken = $request->query('categoria');
-
-    $query = Producto::query(); //variable apuntando a el modelo Producto que tiene de referencia la tabla productos. 
-
-    if ($categoriaToken) {
-       $query->where('categorias_id_categoria', $categoriaToken);  //se le da forma a la consulta   
-    }
-    // ejecuta la consulta y paginar(trae los 15 productos que caben en la pagina)
-    $categorias = Categorias::select('id_categoria', 'nombre')->get(); //variable para todas las categorias en forma de lista.
-    $productos = $query->paginate(15);
-    return view('contenido.contenido', compact('productos', 'categorias', 'categoriaToken'));
-    }*/
-
+    
     public function busquedas(Request $busqueda)
     {
         if (!session()->has('id_usuario')) {
@@ -54,5 +36,40 @@ class ProductoController extends Controller
         $productos = $consultaproductos->paginate(15);
         $categorias = Categorias::select('id_categoria', 'nombre')->get();
         return view('contenido.contenido', compact('productos', 'categorias', 'categoriaToken'));
+    }
+
+    public function agregarproducto(Request $producto)
+    {
+        $producto->validate([
+        'NombreProducto' => 'required|string|max:150|unique:productos,nombre',
+        'DescripcionProducto' => 'nullable|string|max:255',
+        'PrecioProducto' => 'required|numeric|min:0.01|max:9999999999.99',
+        'StockProducto' => 'required|integer|min:0',
+        'ImagenProducto' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp' // 2MB max
+        ]);
+        $imagenPath = null;
+        if ($producto->hasFile('ImagenProducto')) {
+            $imagenPath = $producto->file('ImagenProducto')->store('productos', 'public');
+        }
+
+        Producto::create([
+            'nombre' => $producto->input('NombreProducto'),
+            'descripcion' => $producto->input('DescripcionProducto'),
+            'precio' => $producto->input('PrecioProducto'),
+            'stock' => $producto->input('StockProducto'),
+            'categorias_id_categoria' => $producto->input('categoria'),
+            'imagen' => $imagenPath,
+        ]);
+        return redirect()->route('categorias')->with('success', 'Producto Agregado con Exito');
+    }
+
+    public function categorias()
+    {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+
+        $categorias = Categorias::select('id_categoria', 'nombre')->get();
+        return view('contenido.venderproductos', compact('categorias'));
     }
 }

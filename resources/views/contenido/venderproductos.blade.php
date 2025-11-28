@@ -16,12 +16,13 @@
 
   <!--Vender productos -->
   <div class="formularioproductos">
-    <form action="" method="post" class="formulario-form">
+    <form action="{{ route('producto+') }}" method="post" class="formulario-form" enctype="multipart/form-data">
+      @csrf
       <h3>Vender producto</h3>
 
       <div class="mb-3">
         <label for="nombre" class="form-label"></label>
-        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="Nombre del producto">
+        <input type="text" class="form-control" id="nombreProducto" name="NombreProducto" placeholder="Nombre del producto">
       </div>
 
       <div class="mb-3">
@@ -31,7 +32,7 @@
 
       <div class="mb-3">
         <label for="Precio" class="form-label"></label>
-        <input type="number" class="form-control" id="PrecioProducto" name="PrecioProducto" placeholder="Precio del producto">
+        <input type="number" step="0.01" class="form-control" id="PrecioProducto" name="PrecioProducto" placeholder="Precio del producto">
       </div>
 
       <div class="mb-3">
@@ -40,11 +41,19 @@
       </div>
 
       <div class="mb-3">
-        <label for="imagen" class="form-label"> Agrege una imagen para el producto</label>
-        <input type="file" class="form-control" id="imagenProducto" name="imagenProducto">
+            <select name="categoria" id="filtroCategoriaBusqueda" style="padding: 8px; border-radius: 4px;">                    
+                    @foreach ($categorias as $categoria)   
+                    <option value="{{ $categoria->id_categoria }}">{{ $categoria->nombre }}</option>
+                    @endforeach
+            </select>
       </div>
 
-      <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Vender productos
+      <div class="mb-3">
+        <label for="imagen" class="form-label"> Agregue una imagen para el producto</label>
+        <input type="file" class="form-control" id="imagenProducto" name="ImagenProducto">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;">Vender productos
       </button>
 
       <button type="button" class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149); border: none;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
