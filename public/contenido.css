@@ -200,6 +200,7 @@
     align-items: center; 
     gap: 20px; 
     height: 120px;
+    justify-content: space-between;
 }
 
 .direcciones{
@@ -225,8 +226,6 @@
     padding: 30px;
     
 }
-
-
 .card-grande{
     min-height: 90%;
 }
@@ -235,3 +234,75 @@
     min-height: 50%;
 }
 
+.contenido h2{
+    font-size: 40px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.pie{
+    background: #a6a8ab;
+    padding: 40px;
+    height: 26rem;
+}
+
+.pie h3{
+    margin-bottom: 10px;
+}
+
+.pie p{
+    font-size: 18px;
+}
+
+.enlaces a{
+    text-decoration: none;
+
+}
+
+.contenido{
+    margin-bottom: 25rem;
+}
+
+.cuerpocontenido{
+    display: flex;            
+    flex-direction: column;  
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content-wrapper {
+    flex-grow: 1; 
+}
+
+
+ /* Estilos para el apartado de Datos Cuenta */
+
+.cuerpoDatos{
+    margin: 0;
+    padding: 0;
+ }
+.datoscuenta{
+    background: red;
+    display: flex;
+}
+.cuentaDatos{
+    background: blue;
+    width: auto;
+    height: auto;
+}
+.nombre{
+    background: greenyellow;
+    width: auto;
+    height: auto;
+}
+.contacto{
+    background: purple;
+    width: auto;
+    height: auto;
+}
+
+.correo{
+    background: pink;
+    width: auto;
+    height: auto;
+}

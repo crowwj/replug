@@ -9,25 +9,30 @@
     <title>Document</title>
   </head>
 
-  <body>
-  {{-- @include('contenido.barranavegar') --}} 
+  <body class="cuerpoDatos">
+   <nav class="barra-ayuda">   
+            <a href="" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
+                <div class="d-flex align-items-center">
+                    <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
+                        <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
+                </div>
+   </nav>
 
-    <div class="contenido-contenidocuenta">
-      <h2>Datos de tu cuenta</h2>
-      <div class="card">
-        <div class="card-header">
-          Email
-        </div>
-        <div class="card-body">
-          <!--Creo que aqui debemos poner un input o un larabel para que nos muestre la direccion que nosotros agregamos previamente. : TOCA INVESTIGAR -->
-          <button class="btn btn-primary btn-lg" style="background:rgb(82, 11, 149);border: none;"> Modificar</button>
-        </div>
+   {{-- CORREO, NOMBRE, TELEFONO --}}
+  <div class="datoscuenta">
+      <div class="cuentaDatos">
+      <h3>Configuracion de datos</h3>
       </div>
-    </div>
-
-
-    
-      
+      <div class="nombre"> 
+      <h4>Nombre de usuario</h4>
+      </div>
+      <div class="contacto">
+      <h4>Correo electronico</h4>
+      </div>
+      <div class="correo">
+      <h4>Numero telefonico</h4>
+      </div>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
