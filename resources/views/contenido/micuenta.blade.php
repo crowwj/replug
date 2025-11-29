@@ -11,7 +11,7 @@
 
   <body class="cuerpocontenido">
    {{--   @include('contenido.barranavegar')  --}}
-<div class="content-wrapper">
+
     <nav class="barra-ayuda">   
             <a href="" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
                 <div class="d-flex align-items-center">
@@ -21,6 +21,7 @@
    </nav>
 
   {{-- Contenido --}}
+  <div class="content-wrapper">
   <div class="contenido"> 
     <h2>Mi Cuenta</h2>
     <div class="row mb-5 justify-content-center gx-5"> 
