@@ -11,6 +11,10 @@
 
   <body class="cuerpocontenido">
    {{--   @include('contenido.barranavegar')  --}}
+<<<<<<< HEAD
+<div class="content-wrapper">
+=======
+>>>>>>> a6005c7b2d53a8f96c73540a59bf3cfe0edf04cd
     <nav class="barra-ayuda">   
             <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
                 <div class="d-flex align-items-center">
@@ -20,7 +24,6 @@
    </nav>
 
   {{-- Contenido --}}
-  <div class="content-wrapper">
   <div class="contenido"> 
     <h2>Mi Cuenta</h2>
     <div class="row mb-5 justify-content-center gx-5"> 
@@ -61,7 +64,8 @@
                 <div class="card-header"><span>Direcciones</span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text"> Añade, edita o elimina tus <strong>direcciones</strong> de envío y facturación para agilizar futuras compras.</p>
-                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button>
+                    <a href="{{ route(name: 'producto+')}}">
+                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button></a>
                 </div>
             </div>
         </div>

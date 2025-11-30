@@ -19,12 +19,12 @@
 
             <div class="carrito">
                 <div class="card card-grande">
-                    <span>hola</span>
+                    <span>Productos</span>
                 </div>
             </div>
             <div class="cuadropagar"> 
                 <div class="card card-cobro">
-                    <span>hola</span>
+                    <span>Resumen de la compra</span>
                 </div>
             </div>
 
