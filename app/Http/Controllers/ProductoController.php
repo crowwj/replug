@@ -38,6 +38,8 @@ class ProductoController extends Controller
         return view('contenido.contenido', compact('productos', 'categorias', 'categoriaToken'));
     }
 
+
+
     public function agregarproducto(Request $producto)
     {
         $producto->validate([

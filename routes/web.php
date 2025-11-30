@@ -21,6 +21,7 @@ Route::middleware(['web'])->group(function () {
     //Productos
    Route::get('/contenido', [ProductoController::class, 'busquedas'])->name('productosbusqueda');
 
+ 
     Route::get('/venderproductos', [ProductoController::class, 'categorias'])->name('categorias');
 
     Route::post('/venderproductos', [ProductoController::class, 'agregarproducto'])->name('producto+');
@@ -72,6 +73,12 @@ Route::middleware(['web'])->group(function () {
         return view('contenido.seguridad');
     });
 
+    Route::get('/detalle', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+        return view('contenido.detalle');
+    });
       Route::get('/terminosycondiciones', function () {
         return view('terminosycondiciones'); 
 

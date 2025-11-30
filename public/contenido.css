@@ -457,13 +457,6 @@ margin-bottom: 30px;
     margin-right: auto;
     gap: 50px;
 }
-
-
-
-
-
-
-
 .demostracion{
     align-items: center;
     justify-content: center;
@@ -603,4 +596,41 @@ margin-bottom: 30px;
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+/* APARTADO DE CONTENIDO */
+
+.DetalleContenido{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+    width: 95%;
+    height: 60em;
+    margin: 20px auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+}
+
+.DetalleImagen{
+    
+    border-radius: 12px;
+    width: 50%;
+    height: 95%;
+    margin: 0px auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.DetalleInfo{
+    border-radius: 12px;
+    width: 50%;
+    height: 95%;
+    margin: 0px auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
