@@ -62,4 +62,15 @@ Route::middleware(['web'])->group(function () {
         return view('contenido.menuDirecciones');
     });
 
+      Route::get('/seguridad', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+        return view('contenido.seguridad');
+    });
+
+      Route::get('/terminosycondiciones', function () {
+        return view('terminosycondiciones');
+    });
+
 });

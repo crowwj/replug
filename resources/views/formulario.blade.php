@@ -21,7 +21,7 @@
   <button type="submit" class="btn btn-primary " style="background:#3c0050">Enviar</button> <br>
   </div>
   <div class="cuenta_nueva">
-  <p>No tienes cuenta? <a href="{{ route('registroform') }}">registrate</a></p>
+  <p>No tienes cuenta? <a href="{{ route('terminosycondiciones') }}">registrate</a></p>
    @error('correo')
   <div class="invalid-feedback" style="display: block;">
             {{ $message }}
