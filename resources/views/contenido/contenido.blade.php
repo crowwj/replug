@@ -42,10 +42,6 @@
     
     </div>
     <div class="mostrarproductos">
-
-
-
-
         @if (!empty($productos))
             <div class="productosVisual"> 
                 @foreach ($productos as $producto) 
@@ -59,7 +55,10 @@
                                 <p class="productoSub"></p>{{ $producto['nombre'] ?? $producto->nombre }}</p>
                                 <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
                             </div>
+
+                            <a href="{{ route('detalle',['id'=> $producto ->id_producto ]) }}">
                             <button>ver</button>
+                            </a>
                         </div>
                     </div>  
                 @endforeach

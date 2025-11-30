@@ -9,22 +9,23 @@ Route::middleware(['web'])->group(function () {
     // Login / registro
     Route::get('/', [UsuarioController::class, 'InicioSesionFormulario'])->name('login');
     Route::post('/', [UsuarioController::class, 'InicioSesion'])->name('InicioSesion');
-
     Route::get('/registrousuario', [UsuarioController::class, 'RegistroFormulario'])->name('registroform');
     Route::post('/registrousuario', [UsuarioController::class, 'Registro'])->name('registro');
-
     Route::post('/logout', [UsuarioController::class, 'CerrarSesion'])->name('cerrarsesion');
  
  
- 
+
     // Rutas protegidas
     //Productos
-   Route::get('/contenido', [ProductoController::class, 'busquedas'])->name('productosbusqueda');
-
- 
+    Route::get('/contenido', [ProductoController::class, 'busquedas'])->name('productosbusqueda');
     Route::get('/venderproductos', [ProductoController::class, 'categorias'])->name('categorias');
-
     Route::post('/venderproductos', [ProductoController::class, 'agregarproducto'])->name('producto+');
+
+
+
+    Route::get('/detalle/{id}', [ProductoController::class, 'show'])->name('detalle');
+
+
 
     Route::get('/micuenta', function () {
         if (!session()->has('id_usuario')) {
@@ -72,21 +73,9 @@ Route::middleware(['web'])->group(function () {
         }
         return view('contenido.seguridad');
     });
-
-    Route::get('/detalle', function () {
-        if (!session()->has('id_usuario')) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-        }
-        return view('contenido.detalle');
-    });
       Route::get('/terminosycondiciones', function () {
         return view('terminosycondiciones'); 
 
     }) -> name('terminosycondiciones')  ; 
-
-    // eh noe, me miras?
-    //hey ayuda
-    //hey noe ayudaaaaaaa
-    
 
 });

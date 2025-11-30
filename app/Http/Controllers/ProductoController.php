@@ -40,6 +40,19 @@ class ProductoController extends Controller
 
 
 
+public function show($id)
+{
+    if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+
+        }
+    $producto =Producto::findOrFail($id);
+    return view('contenido.detalle', compact('producto')); 
+}
+
+
+
+
     public function agregarproducto(Request $producto)
     {
         $producto->validate([

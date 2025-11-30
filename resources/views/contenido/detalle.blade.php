@@ -19,12 +19,19 @@
 
 <div class="DetalleContenido">
     <div class="DetalleImagen">
-        <h1>hola</h1>
+       
+         <img src="{{ asset('storage/'.$producto->imagen) }}">
     </div>
     <div class="DetalleInfo">
-        <h1>hola</h1>
+       {{$producto->nombre }}
+          {{$producto->descripcion  }}
+          {{$producto->precio }}
+          {{$producto->stock  }}
     </div>
 </div>
+
+
+
     <footer class="pieContenido">
         <div class="conteInfo">
             <div class="ContenidoEnlaces">
