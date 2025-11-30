@@ -35,7 +35,7 @@
       <div class="card text-center w-50 mx-auto">
     
 
-        <div class="card-header"> <span>Direcciones</span></div>
+        <div class="card-header"> <span>Domicilio</span></div>
 
         <div class="card-body">
         </div>
