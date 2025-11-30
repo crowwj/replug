@@ -11,10 +11,6 @@
 <body class="cuerpoTerminos">
     <nav class="barra-ayuda">   
             <a href="{{ route('registroform') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
-                <div class="d-flex align-items-center">
-                    <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
-                        <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
-                </div>
    </nav>
     <div class="container">
         <div class="terms-card">

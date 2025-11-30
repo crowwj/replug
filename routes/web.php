@@ -14,6 +14,9 @@ Route::middleware(['web'])->group(function () {
     Route::post('/registrousuario', [UsuarioController::class, 'Registro'])->name('registro');
 
     Route::post('/logout', [UsuarioController::class, 'CerrarSesion'])->name('cerrarsesion');
+ 
+ 
+ 
     // Rutas protegidas
     //Productos
    Route::get('/contenido', [ProductoController::class, 'busquedas'])->name('productosbusqueda');
@@ -70,7 +73,13 @@ Route::middleware(['web'])->group(function () {
     });
 
       Route::get('/terminosycondiciones', function () {
-        return view('terminosycondiciones');
-    });
+        return view('terminosycondiciones'); 
+
+    }) -> name('terminosycondiciones')  ; 
+
+    // eh noe, me miras?
+    //hey ayuda
+    //hey noe ayudaaaaaaa
+    
 
 });

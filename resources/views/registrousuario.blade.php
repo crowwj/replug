@@ -30,7 +30,7 @@
 </div>
     <div class="mb-3">
         <input type="checkbox" name="terminosycondiciones" required>
-        <label>Acepto los <a href="#">Términos y condiciones</a></label>
+        <label>Acepto los <a href="{{ route('terminosycondiciones') }}">Términos y condiciones</a></label>
     </div>
 
     <div class="d-grid gap-2 col-6 mx-auto">
