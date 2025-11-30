@@ -163,7 +163,7 @@
     overflow-x: auto;
 }
 .productosCuadros{
-     flex: 0 0 220px; 
+    flex: 0 0 220px; 
     padding: 15px;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -213,7 +213,6 @@
     float: left;
     margin-top: 70px;
     padding: 30px;
-    
 }
 
 .cuadropagar{
@@ -223,7 +222,6 @@
     height: 70vh;
     margin-top: 70px;
     padding: 30px;
-    
 }
 
 
@@ -242,4 +240,19 @@
 .Separacion{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.t1c{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nc{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.t2c{
+    font-size: 25px;
+    font-weight: bold;
 }
