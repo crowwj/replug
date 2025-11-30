@@ -1,21 +1,2 @@
-<a  href="{{ route('micuenta') }}"  style="border:none; color: white;">Mi Cuenta</a>
+<a  href="{{ route('micuenta') }}"  style="border:none; color: white; background-color: rgb(82, 11, 149); padding: 10px; border-radius: 10px; text-decoration:none; "> <i class="fa-solid fa-user"></i> Mi Cuenta</a>
 
-    {{-- 
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="">Datos de tu cuenta</a></li>
-        <li><a class="dropdown-item" href="">Seguridad e inicio de sesion</a></li>
-        <li><a class="dropdown-item" href="#">Pedidos y compras</a></li>
-        <li><a class="dropdown-item" href="">Direcciones</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li>
-            <a class="dropdown-item" href="{{ route('cerrarsesion') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Cerrar sesión
-            </a>
-            <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-        </li>
-    </ul>
-
-    --}}

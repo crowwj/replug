@@ -11,10 +11,8 @@
 
   <body class="cuerpocontenido">
    {{--   @include('contenido.barranavegar')  --}}
-<<<<<<< HEAD
 <div class="content-wrapper">
-=======
->>>>>>> a6005c7b2d53a8f96c73540a59bf3cfe0edf04cd
+
     <nav class="barra-ayuda">   
             <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
                 <div class="d-flex align-items-center">
