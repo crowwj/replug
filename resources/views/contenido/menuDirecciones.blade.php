@@ -9,9 +9,29 @@
   </head>
   
   <body>
+    
     <nav class="barra-ayuda">
-      <a href="" style="text-decoration: none; color: white;">Inicio</a>  
+      <a href="" style="text-decoration: none; color: white;">Inicio</a>
+      <div>
+          <a class="nav-link dropdown-toggle account-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mi Cuenta
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Datos de tu cuenta</a></li>
+            <li><a class="dropdown-item" href="#">Seguridad e inicio de sesion</a></li>
+            <li><a class="dropdown-item" href="#">Pedidos y compras</a></li>
+            <li><a class="dropdown-item" href="#">Direcciones</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
+                <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+          </ul>
+      </div>
     </nav>
+
     <div class="direcciones">
       <div class="card text-center w-50 mx-auto">
         {{-- hey, aqui se pondra la palabra clave --}}
@@ -23,11 +43,11 @@
         </div>
 
         <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary" type="button">Agregar</button>
           <button class="btn btn-primary" type="button">Modificar</button>
           <button class="btn btn-primary disable" type="button">Eliminar</button>
         </div>
 
-        <span>agregar nueva direccion</span> {{-- temporal --}}
 
       </div>
     </div>
