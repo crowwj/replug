@@ -49,22 +49,40 @@
         <div class="Entrada">
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Estado</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <select class="form-select" id="inputGroupSelect01">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
         </div>
 
         <div class="Entrada">
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Municipio</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <select class="form-select" id="inputGroupSelect01">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+         <div class="Entrada">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ciudad</span>
+            <select class="form-select" id="inputGroupSelect01">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
         </div>
 
         <div class="Entrada">
           <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Asentamiento</label>
+            <span class="input-group-text" id="inputGroup-sizing-default">Colonia</span>
             <select class="form-select" id="inputGroupSelect01">
-              <option selected></option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
