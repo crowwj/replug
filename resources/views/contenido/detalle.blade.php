@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
     <title></title>
 </head>
-<body>
+<body class="CuerpoDetalle">
     <nav class="barra-ayuda">   
             <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
                 <div class="d-flex align-items-center">
@@ -19,14 +19,41 @@
 
 <div class="DetalleContenido">
     <div class="DetalleImagen">
-       
-         <img src="{{ asset('storage/'.$producto->imagen) }}">
+         <img src="{{ asset('storage/'.$producto->imagen) }}" style="border-radius:15px;">
     </div>
     <div class="DetalleInfo">
-       {{$producto->nombre }}
-          {{$producto->descripcion  }}
-          {{$producto->precio }}
-          {{$producto->stock  }}
+        <div class="DetalleNombre card">
+             <p> <strong>{{$producto->nombre }}</strong></p>  
+             <div class="descripcion card">
+                <p>{{$producto->descripcion  }}</p>
+             </div>
+             <div class="descripcionContenido">
+            <div class="descripcionPrecioStock">
+                <p style="font-size:25px"> <strong>${{$producto->precio }} </strong></p>
+                <p class="Stockcolor" style="font-size:24px">Stock: {{$producto->stock  }}</p>
+            </div>
+            <div class="descripcionEnvioEntrega">
+                <p class="DescripcionEnvioDia" style="margin:-1px;">El envio llegare entre el miercoles y sabado</p>
+                <div class="Enviogratis">
+                <i class="fa-solid fa-truck"></i>
+                 <p class="DescripcionEnvioGratis" style="margin:-0.7px">Envios gratis</p>
+                </div>
+            </div>
+             <div class="DetalleInfoButton">
+                <button class="btn btn-primary">Agregar al carrito</button>
+                <button class="btn btn-primary">Comprar ahora</button>
+            </div>
+            <div class="descripcionPoliticas">
+                <p> <strong class="DevolucionGratis">Devolución gratis </strong> Tienes 30 días desde que lo recibes, tambien obten el producto que esperabas o te devolvemos tu dinero.</p>
+            </div>
+             <div class="divDetalleFormadepago card">
+                <h4 class="card title">Metodos de pagos disponible</h4>
+                <h5>Tarjetas de credito</h5>
+                <h5>Tarjetas de debito</h5>
+                <h5>Pago en efectivo</h5>
+             </div>
+             </div>
+          </div>
     </div>
 </div>
 
