@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\DireccionesController;
 
 Route::middleware(['web'])->group(function () {
     
@@ -21,7 +22,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('/venderproductos', [ProductoController::class, 'categorias'])->name('categorias');
     Route::post('/venderproductos', [ProductoController::class, 'agregarproducto'])->name('producto+');
 
-
+    Route::get('/api/ubicacion/cp/{cp}', [DireccionesController::class, 'buscarCp'])->name('api.ubicacion.cp');
+     Route::post('/direcciones', [DireccionesController::class, 'agregardireccion'])->name('direccion+');
 
     Route::get('/detalle/{id}', [ProductoController::class, 'show'])->name('detalle');
 
@@ -52,7 +54,7 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.direcciones');
- });
+    })->name('direcciones');
      Route::get('/carrito', function () {
         if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
