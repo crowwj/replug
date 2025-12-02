@@ -30,8 +30,8 @@
                 <div class="card-header"><span>Datos de la cuenta</span></div>
                 
                 <div class="card-body d-flex flex-column"> 
-                    
                     <p class="card-text">Gestiona tu <strong>información personal</strong> (nombre, correo, teléfono) y preferencias de comunicación.</p>
+                    <a href="{{ route('datoscuenta')}}"></a>
                     <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Actualizar información</button> 
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="card-header"><span>Direcciones</span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text"> Añade, edita o elimina tus <strong>direcciones</strong> de envío y facturación para agilizar futuras compras.</p>
-                    <a href="{{ route(name: 'producto+')}}">
+                    
                     <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button></a>
                 </div>
             </div>

@@ -3,11 +3,7 @@
     <div class="search-pill-container">
         <i class="fa-solid fa-magnifying-glass" style="padding:10px"></i>
         <form action="{{ route('productosbusqueda') }}" method="get" class="d-flex search-form-pill" role="search">
-            <input class="form-control search-input-pill" 
-                   type="search" 
-                   placeholder="Buscar productos..." 
-                   aria-label="Search"
-                   name = "busqueda"/>
+            <input class="form-control search-input-pill" type="search" placeholder="Buscar productos..." aria-label="Search"name = "busqueda"/>
             <input type="hidden" name="categoriaToken" value="{{ $categoriaToken }}"/>
         </form>
     </div>
@@ -15,9 +11,7 @@
             <select name="categoriaToken" id="filtroCategoriaBusqueda" style="padding: 8px; border-radius: 4px;" onchange="this.form.submit()">
                     
                     <option value="" {{ empty(old('categoria', $categoriaToken)) ? 'selected' : '' }}>Todas las Categorías</option> 
-                    
-                    @foreach ($categorias as $categoria)
-                        
+                    @foreach ($categorias as $categoria)   
                     <option value="{{ $categoria->id_categoria }}" {{ old('categoria', $categoriaToken) == $categoria->id_categoria ? 'selected' : '' }}>
                     {{ $categoria->nombre }} {{-- Se mostrara el valor de nombre que tiene el registro(categoria) de la lista de registros(categorias) --}}
                     </option>

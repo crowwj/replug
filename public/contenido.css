@@ -654,6 +654,7 @@ margin-bottom: 30px;
 }
 .DetalleInfo img{
     border-radius: 15px;
+    
 }
 
 .Enviogratis{
@@ -675,10 +676,80 @@ margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
 }
+.tituloMetododepago{
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 
+.tituloMetododepago2{
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.tituloMetododepago3{
+    padding: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.TarjetasDePago{
+    display:  flex;
+}
+.TarjetasDePago2{
+    display: flex;
+}
+
+.TarjetasDePago3{
+    display: flex;
+}
+.divDetalleFormadepago{
+    display: flex;
+}
+
+.Terminos{
+    color: gray;
+}
+.DetalleInfoButton{
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .DetalleNombre p{
     font-size: 20px;
     
 }
+
+
+/*APARTADO DE ANIMACION BARRA NAVBAR ( PA Q NO SE VEA SECO) */
+
+.carrito2 {
+     transition: transform 0.3s ease;
+}
+.carrito2:hover{
+     transform: scale(1.1);
+}
+
+.vender {
+     transition: transform 0.3s ease;
+}
+.vender:hover{
+     transform: scale(1.1);
+}
+
+.MicuentaBarra {
+     transition: transform 0.3s ease;
+}
+.MicuentaBarra:hover{
+     transform: scale(1.1);
+}
+
+.botonAnimation {
+     transition: transform 0.3s ease;
+}
+.botonAnimation:hover{
+     transform: scale(1.1);
+}
+
 

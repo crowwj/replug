@@ -12,7 +12,7 @@
 
     <body class="CuerpoContenido">
     @include('contenido.barranavegar')
-
+   
     <div class="demostracion">
         <div class="contenidoDemostracion">
             <p>OFERTA NAVIDEÑA</p><br>
@@ -38,10 +38,10 @@
         </div>
     </div>
 
-    <div class="tituloProductos">
-    
+    <div class="tituloProductos" style="margin-bottom: -1px;">
+        <h4 style="margin-bottom:-5px;">LO MAS NUEVO</h4>
     </div>
-    <div class="mostrarproductos">
+    <div class="mostrarproductos" style="margin-top: -5px">
         @if (!empty($productos))
             <div class="productosVisual"> 
                 @foreach ($productos as $producto) 
@@ -55,21 +55,23 @@
                                 <p class="productoSub"></p>{{ $producto['nombre'] ?? $producto->nombre }}</p>
                                 <p style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">${{ number_format($producto['precio'] ?? $producto->precio, 2) }}</p>
                             </div>
-
-                            <a href="{{ route('detalle',['id'=> $producto ->id_producto ]) }}">
-                            <button>ver</button>
-                            </a>
+                            <div class="botonAnimation">
+                                <a href="{{ route('detalle',['id'=> $producto ->id_producto ]) }}">
+                                <button class="btn btn-primary" style="width:50%;" >ver</button>
+                                </a> 
+                            </div>
                         </div>
                     </div>  
                 @endforeach
-           
-            </div>
-            
+            </div>   
         @else
             <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
         @endif
     </div>
 
+
+
+    
     <footer class="pieContenido">
         <div class="conteInfo">
             <div class="ContenidoEnlaces">

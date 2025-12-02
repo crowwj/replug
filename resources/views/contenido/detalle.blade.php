@@ -43,14 +43,51 @@
                 <button class="btn btn-primary">Agregar al carrito</button>
                 <button class="btn btn-primary">Comprar ahora</button>
             </div>
-            <div class="descripcionPoliticas">
-                <p> <strong class="DevolucionGratis">Devolución gratis </strong> Tienes 30 días desde que lo recibes, tambien obten el producto que esperabas o te devolvemos tu dinero.</p>
+            <div class="descripcionPoliticas card">
+                <p> <strong class="DevolucionGratis">Devolución gratis </strong> <span class="Terminos">tienes 30 días desde que lo recibes, tambien obten el producto que esperabas o te devolvemos tu dinero.</span> </p>
             </div>
              <div class="divDetalleFormadepago card">
-                <h4 class="card title">Metodos de pagos disponible</h4>
-                <h5>Tarjetas de credito</h5>
-                <h5>Tarjetas de debito</h5>
-                <h5>Pago en efectivo</h5>
+                 <h4 class="card title">Metodos de pagos disponible</h4>
+                <div class="tituloMetododepago">
+                    <h5 > <u> Tarjetas de credito </u></h5>
+                </div>
+                <div class="TarjetasDePago title">
+                    <div class="debito " style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/9cf818e0-723a-11f0-a459-cf21d0937aeb-m.svg" alt="">
+                    </div>
+                    <div class="debito2 " style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/312238e0-571b-11e8-823a-758d95db88db-m.svg"" alt="">
+                    </div>
+                    <div class="debito3" style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/1aa15450-627c-11ec-909f-0dbec338a4e0-m.svg" alt="">
+                    </div>
+                </div>
+                <div class="tituloMetododepago2">
+                    <h5> <u> Tarjetas de debito </u> </h5>
+                </div>
+                <div class="TarjetasDePago2">
+                    <div class="credito" style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/2b3223a0-eaf7-11eb-9a80-1175871fb85a-m.svg" alt="">
+                    </div>
+                    <div class="credito2" style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg" alt="">
+                    </div>
+                    <div class="credito3">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/9cf818e0-723a-11f0-a459-cf21d0937aeb-m.svg" alt="">
+                    </div>
+                </div>
+                <div class="tituloMetododepago3">
+                    <h5> <u> Pago en efectivo </u></h5>
+                </div>
+
+                <div class="TarjetasDePago3">
+                    <div class="efectivo" style="width:100px">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/87075440-571e-11e8-823a-758d95db88db-m.svg" alt="">
+                    </div>
+                    <div class="efectivo2" style="width: 100px;">
+                       <img src=" https://http2.mlstatic.com/storage/logos-api-admin/23a95840-6817-11ec-a13d-73e40a9e9500-m.svg" alt="">
+                    </div>
+                </div>
              </div>
              </div>
           </div>

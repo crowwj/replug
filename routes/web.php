@@ -39,7 +39,7 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.datoscuenta');
-    });
+    }) -> name('datoscuenta');
     Route::get('/ayuda', function () {
         if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
@@ -52,7 +52,7 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.direcciones');
- });
+ })-> name('direcciones');
      Route::get('/carrito', function () {
         if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
