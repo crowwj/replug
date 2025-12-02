@@ -598,7 +598,7 @@ margin-bottom: 30px;
     padding: 20px;
 }
 
-/* APARTADO DE CONTENIDO */
+/* APARTADO DE DELLATE-PRODUCTO */
 
 .DetalleContenido{
     align-items: center;
@@ -611,11 +611,10 @@ margin-bottom: 30px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    gap: 20px;
+    gap: 30px;
 }
 
 .DetalleImagen{
-    
     border-radius: 12px;
     width: 50%;
     height: 95%;
@@ -623,14 +622,63 @@ margin-bottom: 30px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+}
+.CuerpoDetalle{
+    background: rgb(223, 220, 220);
+}
+
+.descripcionPrecioStock{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 10px;
+}
+.DevolucionGratis{
+    color:#6a0dad
+}
+.DescripcionEnvioGratis{
+    color:#6a0dad;
+}
+.Stockcolor{
+    color: #6a0dad;
+    font-size: 0.9em;
     
+    font-size: 50px;
+}
+.descripcionEnvioEntrega{
+    display:flex;
+    
+    align-items: center;
+    flex-direction: column;
+    
+}
+.DetalleInfo img{
+    border-radius: 15px;
+}
+
+.Enviogratis{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 5px; 
+}
+.DescripcionEnvioDia{
+    color: #495057;
+    font-size: 5px;
+
 }
 .DetalleInfo{
     border-radius: 12px;
     width: 50%;
     height: 95%;
     margin: 0px auto;
-    display: flex;
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.DetalleNombre p{
+    font-size: 20px;
+    
+}
+
