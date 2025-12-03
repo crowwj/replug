@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categorias;
+use App\Models\carrito;
 
 class ProductoController extends Controller
 {
@@ -46,8 +47,9 @@ public function show($id)
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
 
         }
-    $producto =Producto::findOrFail($id);
-    return view('contenido.detalle', compact('producto')); 
+    $producto = Producto::findOrFail($id);
+    $carrito = carrito::where('Usuarios_id_usuario', session('id_usuario'))->first();
+    return view('contenido.detalle', compact('producto', 'carrito')); 
 }
 
 
