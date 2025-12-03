@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
+<body class="CuerpoSeguridad">
      <nav class="barra-ayuda">   
-            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
-                <div class="d-flex align-items-center">
-                    <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
-                        <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
+            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;" class="botonInicioBarra">Inicio</a>  
+            <div class="menu-derecha"> <div class="carrito2">
+                <a href=""> <i class="fa-solid fa-cart-shopping"></i> Mi carrito </a>
+            </div>
+            <div class="vender">
+                <a href="{{ route('micuenta') }}"><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
+            </div>
+            <div class="cerrar">
+                <div class="d-flex align-items-center" class="cerrar">
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); "> Cerrar sesión </a>
+                    <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
                 </div>
-   </nav>
-    <br>
+            </div></div>
+    </nav>
+
+
+
     <div class="SeguridadPadre">
         <div class="cuerpoSeguridad ">
             <div class="seguridadTitulo card">
@@ -39,8 +49,11 @@
             </div>
 
                 <div class="opcionesSeguridad">
-                    <button class="btn btn-primary" type="submit">Guardar contraseña</button>
-                    <button class="btn btn-primary" type="submit">Modificar contraseña</button>
+                    <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Guardar contraseña</button>
+                    <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Modificar contraseña</button>
+                     <a href="{{ route('micuenta')}}">
+                     <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Regresar</button>
+                     </a>
                 </div>
                 
             </div>

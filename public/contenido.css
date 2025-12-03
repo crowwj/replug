@@ -13,6 +13,10 @@
     gap: 20px; 
     height: 120px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    position: sticky; 
+    top: 0;           
+    z-index: 1000; 
+    background-color: white; 
 }
 
 .opcionesCategorias{
@@ -110,6 +114,13 @@
     text-decoration: none;
 }
 .carrito2{
+    background-color: #422e60;
+    padding: 10px;
+    border-radius: 10px;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.botonInicioBarra{
     background-color: #422e60;
     padding: 10px;
     border-radius: 10px;  
@@ -281,16 +292,24 @@
     border-radius: 10px;
 }
 .barra-ayuda{
-    background-color: #6a0dad; 
+    background-color: #ffffff; 
     padding: 15px 25px;
     display: flex; 
     align-items: center; 
     gap: 20px; 
     height: 120px;
     justify-content: space-between;
-    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
+
+
+.menu-derecha{
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+}
 .direcciones{
     padding: 100px;
 }
@@ -329,7 +348,7 @@
 }
 
 .pie{
-    background: #3f4041;
+    background: #58058f85;
     padding: 40px;
     height: 26rem;
     color: white;
@@ -361,6 +380,16 @@
     flex-direction: column;  
     min-height: 100vh;
     margin: 0;
+  background: linear-gradient(
+    180deg, 
+    #9775b6 3%, 
+    #ffffff 15%, 
+    #e9dff1 90%
+  ) !important;
+
+
+
+
 }
 
 .content-wrapper {
@@ -373,8 +402,9 @@
 .cuerpoDatos{
     margin: 0;
     padding: 0;
-    background: rgb(223, 220, 220);
     border-radius: 10px;
+    background: linear-gradient(180deg, #9775b6 3%, #ffffff 15%, #e9dff1 90%) !important;
+    min-height: 100vh;
  }
 
 .datoscuenta{
@@ -408,8 +438,13 @@
 
 /*Estilos para el apartado de Seguridad*/
 
+.CuerpoSeguridad{
+  background: linear-gradient(180deg, #9775b6 3%, #ffffff 15%, #e9dff1 90%) !important;
+   min-height: 100vh;
+}
+
 .SeguridadPadre{
-   
+  
     width: 70%;
     margin: 50px auto;
     display: flex;
@@ -808,6 +843,9 @@ margin-bottom: 30px;
     
 }
 
+.BotonAAnimacion{
+    text-decoration: none;
+}
 
 /*APARTADO DE ANIMACION BARRA NAVBAR ( PA Q NO SE VEA SECO) */
 
@@ -817,6 +855,25 @@ margin-bottom: 30px;
 .carrito2:hover{
      transform: scale(1.1);
 }
+
+.cerrar {
+     transition: transform 0.3s ease;
+}
+.cerrar:hover{
+     transform: scale(1.1);
+}
+
+
+
+.botonInicioBarra {
+     transition: transform 0.3s ease;
+}
+.botonInicioBarra:hover{
+     transform: scale(1.1);
+}
+
+
+
 
 .vender {
      transition: transform 0.3s ease;

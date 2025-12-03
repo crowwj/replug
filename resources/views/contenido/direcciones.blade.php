@@ -8,29 +8,23 @@
       <title></title>
   </head>
   
-  <body>
-    
-    <nav class="barra-ayuda">
-      <a href="" style="text-decoration: none; color: white;">Inicio</a>
-      <div>
-          <a class="nav-link dropdown-toggle account-link-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mi Cuenta
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Datos de tu cuenta</a></li>
-            <li><a class="dropdown-item" href="#">Seguridad e inicio de sesion</a></li>
-            <li><a class="dropdown-item" href="#">Pedidos y compras</a></li>
-            <li><a class="dropdown-item" href="#">Direcciones</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
-                <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-          </ul>
-      </div>
+  <body class="PadreDirecciones">
+    <nav class="barra-ayuda">   
+            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); " class="botonInicioBarra">Inicio</a>  
+            <div class="menu-derecha"> <div class="carrito2">
+                <a href="" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); "> <i class="fa-solid fa-cart-shopping"></i> Mi carrito </a>
+            </div>
+            <div class="vender">
+                <a href="{{ route('micuenta') }}" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); "><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
+            </div>
+            <div class="cerrar">
+                <div class="d-flex align-items-center" class="cerrar">
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); "> Cerrar sesión </a>
+                    <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
+                </div>
+            </div></div>
     </nav>
+
     <div class="direcciones">
     <div class="card text-center w-50 mx-auto">
         <div class="card-header"> <span>Domicilio</span></div>
@@ -122,7 +116,7 @@
 
                 <div class="Separacion">
                     <!-- ID AÑADIDO: btn-agregar-direccion, DESHABILITADO por defecto -->
-                    <button type="submit" class="btn btn-primary" id="btn-agregar-direccion" disabled>Agregar dirección</button>
+                    <button type="submit" class="btn btn-primary" id="btn-agregar-direccion" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); border: none; ">Agregar dirección</button>
                 </div>
             </form>
         </div>

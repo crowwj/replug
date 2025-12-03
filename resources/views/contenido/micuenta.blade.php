@@ -10,47 +10,51 @@
   </head>
 
   <body class="cuerpocontenido">
-   {{--   @include('contenido.barranavegar')  --}}
 <div class="content-wrapper">
-
     <nav class="barra-ayuda">   
-            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
-            <div class="carrito2">
+            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;" class="botonInicioBarra">Inicio</a>  
+           <div class="menu-derecha"> <div class="carrito2">
                 <a href=""> <i class="fa-solid fa-cart-shopping"></i> Mi carrito </a>
             </div>
             <div class="vender">
                 <a href="{{ route('micuenta') }}"><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
             </div>
-            <div class="d-flex align-items-center">
-                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
+            <div class="cerrar">
+            <div class="d-flex align-items-center" class="cerrar">
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;  background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); "> Cerrar sesión </a>
                     <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
             </div>
-    </nav>
+            </div>
+   </div> </nav>
 
   {{-- Contenido --}}
-  <div class="contenido" style="  background: rgb(223, 220, 220);"> 
+  <div class="contenido"> 
     <h2>Mi Cuenta</h2>
+
     <div class="row mb-5 justify-content-center gx-5"> 
         <div class="col-12 col-md-6"> 
             <div class="card h-100"> 
-                <div class="card-header"><span>Datos de la cuenta</span></div>
+                <div class="card-header"><span><strong>Datos de la cuenta</strong></span></div>
                 
                 <div class="card-body d-flex flex-column"> 
                     <p class="card-text">Gestiona tu <strong>información personal</strong> (nombre, correo, teléfono) y preferencias de comunicación.</p>
-                    <a href="{{ route('datoscuenta')}}">
-                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Actualizar información</button> 
+                   
+                    <a href="{{ route('datoscuenta')}}" class="BotonAAnimacion">
+                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important; background-color: #422e60;border:none;">Actualizar información</button> 
                     </a>
+                  
                 </div>
             </div>
         </div>
+    
         <div class="col-12 col-md-6">
             <div class="card h-100">
-                <div class="card-header"><span>Seguridad e inicio de sesion</span></div>
+                <div class="card-header"><span><strong>Seguridad e inicio de sesion</strong></span></div>
                 
                 <div class="card-body d-flex flex-column"> 
                     <p class="card-text">Cambia tu <strong>contraseña</strong> de forma segura, revisa tu <strong>actividad</strong> reciente e implementa la verificación en dos pasos.</p>
-                     <a href="{{ route('seguridad')}}">
-                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Configurar Seguridad</button>
+                     <a href="{{ route('seguridad')}}" class="BotonAAnimacion">
+                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important; background-color: #422e60; border:none; ">Configurar Seguridad</button>
                     </a>
                 </div>
             </div>
@@ -59,22 +63,22 @@
     <div class="row justify-content-center gx-5" style="margin-top:100px">
         <div class="col-12 col-md-6">
             <div class="card h-100">
-                <div class="card-header"><span>Pedido y compras</span></div>
+                <div class="card-header"><span> <strong> Pedido y compras </strong> </span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text">Revisa el historial completo de tus compras, verifica el estado de tus <strong>pedidos</strong> activos y gestiona tus facturas.</p>
-                      <a href="{{ route('seguridad')}}">
-                    <button class="btn btn-primary mt-auto align-self-start" style="width: auto !important; max-width: none !important;">Mostrar pedidos e historial</button>
+                      <a href="{{ route('seguridad')}}" class="BotonAAnimacion">
+                    <button class="btn btn-primary mt-auto align-self-start" style="width: auto !important; max-width: none !important; background-color: #422e60; border:none;">Mostrar pedidos e historial</button>
                     </a>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-6">
             <div class="card h-100">
-                <div class="card-header"><span>Direcciones</span></div>
+                <div class="card-header"><span><strong>Direcciones</strong></span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text"> Añade, edita o elimina tus <strong>direcciones</strong> de envío y facturación para agilizar futuras compras.</p>
-                     <a href="{{ route('direcciones')}}">
-                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button>
+                     <a href="{{ route('direcciones')}}" class="BotonAAnimacion">
+                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important; background-color: #422e60; border:none;">Administrar direcciones</button>
                     </a>
                 </div>
             </div>
