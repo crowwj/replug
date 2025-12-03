@@ -3,8 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\carrito;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
@@ -27,11 +29,16 @@ class UsuarioController extends Controller
             'terminosycondiciones' => 'accepted'
         ]);
 
-        User::create([
+        $usuario = User::create([
             'nombre' => $request->input('nombre'),
             'correo' => $request->input('email'),
             'telefono' => $request->input('telefono'),
             'contrasena' => Hash::make($request->input('contrasena')),
+        ]);
+
+        carrito::create([
+            'fecha_creacion' => Carbon::now(),
+            'Usuarios_id_usuario' => $usuario->id_usuario,
         ]);
 
         return redirect()->route('login')->with('success', 'Usuario registrado correctamente');
