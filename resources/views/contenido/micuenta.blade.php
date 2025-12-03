@@ -22,7 +22,7 @@
    </nav>
 
   {{-- Contenido --}}
-  <div class="contenido"> 
+  <div class="contenido" style="  background: rgb(223, 220, 220);"> 
     <h2>Mi Cuenta</h2>
     <div class="row mb-5 justify-content-center gx-5"> 
         <div class="col-12 col-md-6"> 
@@ -31,8 +31,9 @@
                 
                 <div class="card-body d-flex flex-column"> 
                     <p class="card-text">Gestiona tu <strong>información personal</strong> (nombre, correo, teléfono) y preferencias de comunicación.</p>
-                    <a href="{{ route('datoscuenta')}}"></a>
+                    <a href="{{ route('datoscuenta')}}">
                     <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Actualizar información</button> 
+                    </a>
                 </div>
             </div>
         </div>
@@ -42,7 +43,9 @@
                 
                 <div class="card-body d-flex flex-column"> 
                     <p class="card-text">Cambia tu <strong>contraseña</strong> de forma segura, revisa tu <strong>actividad</strong> reciente e implementa la verificación en dos pasos.</p>
+                     <a href="{{ route('seguridad')}}">
                     <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Configurar Seguridad</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -53,7 +56,9 @@
                 <div class="card-header"><span>Pedido y compras</span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text">Revisa el historial completo de tus compras, verifica el estado de tus <strong>pedidos</strong> activos y gestiona tus facturas.</p>
+                      <a href="{{ route('seguridad')}}">
                     <button class="btn btn-primary mt-auto align-self-start" style="width: auto !important; max-width: none !important;">Mostrar pedidos e historial</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -62,8 +67,9 @@
                 <div class="card-header"><span>Direcciones</span></div>
                 <div class="card-body d-flex flex-column">
                     <p class="card-text"> Añade, edita o elimina tus <strong>direcciones</strong> de envío y facturación para agilizar futuras compras.</p>
-                    
-                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button></a>
+                     <a href="{{ route('direcciones')}}">
+                    <button class="btn btn-primary mt-auto"style="width: auto !important; max-width: none !important;">Administrar direcciones</button>
+                    </a>
                 </div>
             </div>
         </div>

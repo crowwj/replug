@@ -10,7 +10,7 @@
   </head>
   <body class="cuerpoDatos">
    <nav class="barra-ayuda">   
-            <a href="{{ route('registrousuario') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
+            <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
                 <div class="d-flex align-items-center">
                     <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
                         <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
@@ -40,7 +40,10 @@
       </div>
       <div class="configuraciones">
       <button class="btn btn-primary" type="submit">Guardar configuracion</button>
+      <a href="{{ route('micuenta')}}">
       <button class="btn btn-primary" type="submit">Modificar informacion</button>
+      <button class="btn btn-primary" type="submit">Regresar</button>
+      </a>
       </div>
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

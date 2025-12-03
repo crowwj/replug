@@ -12,7 +12,6 @@
 
     <body class="CuerpoContenido">
     @include('contenido.barranavegar')
-   
     <div class="demostracion">
         <div class="contenidoDemostracion">
             <p>OFERTA NAVIDEÑA</p><br>
@@ -27,8 +26,6 @@
             </div>
             <img src="{{ asset('img/laptopgaming.png') }}" alt="">
          </div>
-
-
         <div class="producto2Demostrar">
             <div class="productos2Info">
                 <h4>ALTO RENDIMIENTO</h4>
@@ -37,7 +34,6 @@
             <img src="{{ asset('img/pcgaming.png') }}" alt="">
         </div>
     </div>
-
     <div class="tituloProductos" style="margin-bottom: -1px;">
         <h4 style="margin-bottom:-5px;">LO MAS NUEVO</h4>
     </div>
@@ -57,7 +53,7 @@
                             </div>
                             <div class="botonAnimation">
                                 <a href="{{ route('detalle',['id'=> $producto ->id_producto ]) }}">
-                                <button class="btn btn-primary" style="width:50%;" >ver</button>
+                                <button class="btn btn-primary" style="width:50%; background-image: linear-gradient(90deg, #d420f8, #8d5dfe); border:none;" > <strong> ver </strong></button>
                                 </a> 
                             </div>
                         </div>
@@ -68,10 +64,6 @@
             <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
         @endif
     </div>
-
-
-
-    
     <footer class="pieContenido">
         <div class="conteInfo">
             <div class="ContenidoEnlaces">

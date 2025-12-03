@@ -8,9 +8,8 @@
         </form>
     </div>
         <form action="{{ route('productosbusqueda') }}" method="get">{{-- combo de categorias junto a la barra --}}
-            <select name="categoriaToken" id="filtroCategoriaBusqueda" style="padding: 8px; border-radius: 4px;" onchange="this.form.submit()">
-                    
-                    <option value="" {{ empty(old('categoria', $categoriaToken)) ? 'selected' : '' }}>Todas las Categorías</option> 
+            <select class='opcionesCategorias'name="categoriaToken" id="filtroCategoriaBusqueda"  onchange="this.form.submit()"> 
+                    <option value="" {{ empty(old('categoria', $categoriaToken)) ? 'selected' : '' }}>Mostrar Categorías</option> 
                     @foreach ($categorias as $categoria)   
                     <option value="{{ $categoria->id_categoria }}" {{ old('categoria', $categoriaToken) == $categoria->id_categoria ? 'selected' : '' }}>
                     {{ $categoria->nombre }} {{-- Se mostrara el valor de nombre que tiene el registro(categoria) de la lista de registros(categorias) --}}
