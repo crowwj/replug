@@ -123,9 +123,6 @@
     </div>
 </div>
 
-<!-- ---------------------------------------------------------------------------------- -->
-<!-- JAVASCRIPT: Lógica de Interacción, Debouncing y Fetch (AJAX) -->
-<!-- ---------------------------------------------------------------------------------- -->
 <script>
     // Referencias a los elementos del DOM
     const $cpInput = document.getElementById('cp-input');
