@@ -186,7 +186,38 @@
     gap: 20px; 
     padding: 20px; 
     overflow-x: auto;
+    overflow-x: scroll;
     
+    scrollbar-width: thin; 
+    scrollbar-color: #A365F7 #f0f0f0; /
+}
+
+.tituloProductos{
+     padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.Subtitle{
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.productosVisual::-webkit-scrollbar {
+    height: 10px; 
+}
+
+.productosVisual::-webkit-scrollbar-thumb {
+    background-color: #A365F7; 
+}
+
+.productosVisual::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Un gris muy claro */
+}
+.productosVisual::-webkit-scrollbar {
+    display: none;
 }
 .productosCuadros{
     flex: 0 0 220px;
@@ -257,6 +288,7 @@
     gap: 20px; 
     height: 120px;
     justify-content: space-between;
+    
 }
 
 .direcciones{
@@ -473,6 +505,38 @@ margin-bottom: 30px;
     margin-right: auto;
     gap: 50px;
 }
+
+.mostrarproductos2{
+    width: 80%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+}
+
+
+.productoBorde2{
+  padding: 10px;
+  border-radius: 10px;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2); 
+  background: white;
+  width: 100%;
+  align-self: start;
+}
+
+.productosVisual2{
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    padding: 20px; 
+}
+
+.paginacion-wrapper ul {
+    padding: 10px;
+}
 .demostracion{
     align-items: center;
     justify-content: center;
@@ -597,7 +661,7 @@ margin-bottom: 30px;
 }
 
 .pieContenido{
-      background: #3f4041;
+      background: #58058f85;
       height: 10em;
       padding: 10px;
 }

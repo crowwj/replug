@@ -35,13 +35,17 @@
         </div>
     </div>
     <div class="tituloProductos" style="margin-bottom: -1px;">
-        <h4 style="margin-bottom:-5px;">LO MAS NUEVO</h4>
+        <h4 style="margin-bottom:-5px;" class="Subtitle">PRODUCTOS</h4>
     </div>
-    <div class="mostrarproductos" style="margin-top: -5px">
+
+   
+
+
+      <div class="mostrarproductos2" style="margin-top: -5px">
         @if (!empty($productos))
-            <div class="productosVisual"> 
+            <div class="productosVisual2"> 
                 @foreach ($productos as $producto) 
-                    <div class="productoBorde">   
+                    <div class="productoBorde2">   
                         <div class="productosCuadros">
                             <div class="productosImagen">
                                 <img src="{{ asset('storage/'.$producto->imagen) }}">
@@ -64,6 +68,10 @@
             <p style="color: red; font-weight: bold;">❌ No se encontraron productos.</p>
         @endif
     </div>
+   <div class="paginacion-wrapper" style="display: flex; flex-direction: column; align-items: center; margin-top: 30px;">
+    {{ $productos->links() }}
+</div>
+
     <footer class="pieContenido">
         <div class="conteInfo">
             <div class="ContenidoEnlaces">

@@ -22,7 +22,7 @@
         <a href=""> <i class="fa-solid fa-cart-shopping"></i> Mi carrito </a>
     </div>
     <div class="vender">
-         <a href=""><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
+         <a href="{{ route('micuenta') }}"><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
     </div>
     @include('contenido.comboMicuenta')
 </nav>

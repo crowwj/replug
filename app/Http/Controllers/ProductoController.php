@@ -33,7 +33,7 @@ class ProductoController extends Controller
                     ->orWhere('descripcion', 'like', $terminoFormateado);
             });
         }
-        $productos = $consultaproductos->paginate(15);
+        $productos = $consultaproductos->paginate(9);
         $categorias = Categorias::select('id_categoria', 'nombre')->get();
         return view('contenido.contenido', compact('productos', 'categorias', 'categoriaToken'));
     }
@@ -56,8 +56,8 @@ public function show($id)
     public function agregarproducto(Request $producto)
     {
         $producto->validate([
-        'NombreProducto' => 'required|string|max:150|unique:productos,nombre',
-        'DescripcionProducto' => 'nullable|string|max:255',
+        'NombreProducto' => 'required|string|max:400|unique:productos,nombre',
+        'DescripcionProducto' => 'nullable|string|max:2000',
         'PrecioProducto' => 'required|numeric|min:0.01|max:9999999999.99',
         'StockProducto' => 'required|integer|min:0',
         'ImagenProducto' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp' // 2MB max

@@ -15,11 +15,17 @@
 
     <nav class="barra-ayuda">   
             <a href="{{ route('productosbusqueda') }}" style="text-decoration: none; color: white; font-size: 20px;">Inicio</a>  
-                <div class="d-flex align-items-center">
-                    <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
-                        <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
-                </div>
-   </nav>
+            <div class="carrito2">
+                <a href=""> <i class="fa-solid fa-cart-shopping"></i> Mi carrito </a>
+            </div>
+            <div class="vender">
+                <a href="{{ route('micuenta') }}"><i class="fa-solid fa-hand-holding-dollar"></i> Vender Producto</a>
+            </div>
+            <div class="d-flex align-items-center">
+                <a class="dropdown-item" href="{{ route('cerrarsesion') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: white; font-size: 20px; width:auto;"> Cerrar sesión </a>
+                    <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
+            </div>
+    </nav>
 
   {{-- Contenido --}}
   <div class="contenido" style="  background: rgb(223, 220, 220);"> 
