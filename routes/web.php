@@ -70,6 +70,13 @@ Route::middleware(['web'])->group(function () {
         return view('contenido.carrito');
     });
 
+    Route::get('/pedido', function () {
+        if (!session()->has('id_usuario')) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
+        }
+        return view('contenido.pedido');
+    }) -> name('pedido');
+
     Route::get('/menuDirecciones', function () {
         if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
