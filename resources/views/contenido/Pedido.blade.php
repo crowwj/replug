@@ -26,6 +26,9 @@
         </div>
     </nav>
 
+
+    <div class="cuerpoPedido">
+
     <div class="CabezaPedidos">
         <div class="tituloPedidos">
             <a href="" class="HisCompra"><span>Historial de compras</span></a>
@@ -35,9 +38,7 @@
     </div>
 
     <div class="MostrarPedido">
-        <div class="SubtituloPedido">
-            <h5>Producto</h5>
-        </div>
+      
         <div class="VisualizacionPedido">
         <div class="ImagenProducto">
             <img src="{{ asset('img/laptopgaming.png') }}" alt="">
@@ -55,12 +56,16 @@
             </div>
         </div>
         <div class="PedidoBotones">
-            <h5>Total</h5>
-            <button>Agregar cesta</button>
-            <button>Borrar</button>
+            <h5>Total</h5> <br>
+            <p>$1004</p>
+            <div class="PedidoBotonesP">
+                <button class="BotonAgregarCesta">Ver compra</button>
+               
+            </div>
         </div>
         </div>
     </div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

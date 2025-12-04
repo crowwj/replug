@@ -956,9 +956,14 @@ margin-bottom: 30px;
 }
 
 .CabezaPedidos{
-    background: #4a235a;
+    
     height: 60px;
     width: 50%;
+    margin-top: 110px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
 }
 
 .CabezaPedidos a{
@@ -969,6 +974,7 @@ margin-bottom: 30px;
 
 .HisCompra{
     padding: 30px;
+    
 }
 
 .Pend{
@@ -976,30 +982,79 @@ margin-bottom: 30px;
     
 }
 
-.SubtituloPedido{
-    background: gray;
-}
-.MostrarPedido{
-    background: red;
+.NombreProducto{
+    padding: 10px;
 }
 
-.ImagenProducto{
-    background: blue;
+.PrecioPedido{
+    padding: 10px;
+}
+
+.CantidadPedido{
+    padding: 10px;
+}
+
+.PedidoBotones{
+    padding:10px
+
+}
+
+.PedidoBotonesP{
+    display:grid;
+    gap: 10px;
+
+}
+.MostrarPedido{
+    
+    
+    background: white;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+
+
+.BotonAgregarCesta{
+background-image: linear-gradient(90deg, #d420f8, #8d5dfe);
+border: none;
+border-radius: 10px;
+color: white;
+font-size: 20px;
+padding: 5px;
+transition: transform 0.3s ease;
+}
+
+
+
+.BotonAgregarCesta:hover{
+     transform: scale(1.1);
+}
+
+
+
+.cuerpoPedido{
+    padding: 20px;
+}
+
+.ImagenProducto{    
     width: 20%;
 }
 .VisualizacionPedido{
     display: flex;
+    align-items: center;
+    
 }
 
 .ImagenProducto img{
     width: 100%;
 }
 .PedidosInfo{
-    background: green;
+    
     width: 60%;
 }
 
 .PedidoBotones{
-    background-color: yellow;
+    
     width: 20%;
 }
