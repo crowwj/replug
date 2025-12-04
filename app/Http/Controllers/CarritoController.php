@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\carrito;
-use App\Models\carritoDetalle;
+use App\Models\Carrito;
+use App\Models\CarritoDetalle;
 use App\Models\Pedido;
 use App\Models\PedidoDetalle;
 use App\Models\Producto;
@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class CarritoController extends Controller
 {
@@ -87,7 +88,7 @@ class CarritoController extends Controller
         ]);
         
         // 1. BUSCAR CANTIDAD ACTUAL
-        $cantidadActual = carritoDetalle::where('carrito_id_carrito', $idCarrito)
+        $cantidadActual = CarritoDetalle::where('carrito_id_carrito', $idCarrito)
             ->where('productos_id_producto', $idProducto)
             ->value('cantidad') ?? 0;
             
@@ -107,7 +108,7 @@ class CarritoController extends Controller
         }
         
         // 4. CREAR O ACTUALIZAR (CONSOLIDAR)
-        carritoDetalle::updateOrCreate(
+        CarritoDetalle::updateOrCreate(
             [
                 'carrito_id_carrito' => $idCarrito, 
                 'productos_id_producto' => $idProducto
@@ -135,7 +136,7 @@ class CarritoController extends Controller
             $idDetalle = $request->input('id_detalle');
             $nuevaCantidad = $request->input('nueva_cantidad');
 
-            $detalle = carritoDetalle::find($idDetalle);
+            $detalle = CarritoDetalle::find($idDetalle);
 
             if (!$detalle) {
                 return response()->json(['success' => false, 'message' => 'Detalle de carrito no encontrado.'], 404);
@@ -171,8 +172,6 @@ class CarritoController extends Controller
             return response()->json(['success' => false, 'message' => 'Error de validación: ' . $e->getMessage()], 422);
         } catch (\Exception $e) {
             // Cualquier otro error, como un error de base de datos
-            // **IMPORTANTE: En producción, no mostrar $e->getMessage() directamente al usuario final.**
-            // Para depuración, es útil.
             return response()->json(['success' => false, 'message' => 'Error interno del servidor: ' . $e->getMessage()], 500);
         }
     }
@@ -218,7 +217,7 @@ class CarritoController extends Controller
     /**
      * Mueve todos los productos del carrito actual a un nuevo pedido, 
      * ejecutando una transacción de base de datos.
-     * * @param Request $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function confirmarCompra(Request $request)
@@ -226,12 +225,10 @@ class CarritoController extends Controller
         // 1. Obtener el ID del usuario actual. 
         $userId = Auth::id();
         if (!$userId) {
-            // Esto debería ser raro si la ruta está protegida, pero es una buena práctica.
             return redirect()->route('login')->with('error', 'Debes iniciar sesión para completar la compra.');
         }
 
         // 2. Obtener el ID del carrito principal del usuario.
-        // ASUMIMOS: Tienes un modelo 'Carrito' principal con una relación al usuario (Usuarios_id_usuario)
         $carrito = Carrito::where('Usuarios_id_usuario', $userId)->first();
         
         if (!$carrito) {
@@ -252,11 +249,10 @@ class CarritoController extends Controller
             // 5. Crear el Pedido principal
             $nuevoPedido = Pedido::create([
                 'Usuarios_id_usuario' => $userId,
-                // 'fecha_pedido' se llenará automáticamente por la base de datos (si usas TIMESTAMP)
                 'estado' => 'pendiente', 
             ]);
 
-            // 6. Mover los detalles del carrito a los detalles del pedido
+            // 6. Mover los detalles del carrito a los detalles del pedido y ACTUALIZAR EL STOCK
             $detallesParaEliminar = [];
             foreach ($detallesCarrito as $detalle) {
                 
@@ -268,6 +264,16 @@ class CarritoController extends Controller
                     'precio_unitario' => $detalle->precio_unitario,
                 ]);
                 
+                // *** INICIO: Lógica para descontar stock ***
+                $producto = Producto::find($detalle->productos_id_producto);
+                if ($producto) {
+                    $producto->stock -= $detalle->cantidad;
+                    // Esto fallará si el stock cae por debajo de cero y tienes una regla de DB.
+                    // La validación se hace al añadir, pero es un buen punto de control.
+                    $producto->save(); 
+                }
+                // *** FIN: Lógica para descontar stock ***
+
                 // Guardar el ID del detalle del carrito para eliminarlo
                 $detallesParaEliminar[] = $detalle->id_carrito_detalle;
             }
@@ -293,9 +299,85 @@ class CarritoController extends Controller
         }
     }
 
+    /**
+     * Procesa la compra de un único producto directamente, sin pasar por el carrito.
+     * Esta es la función para el botón "Comprar ahora".
+     * @param Request $request Debe contener 'id_producto' y 'cantidad'.
+     * @return \Illuminate\Http\Response
+     */
+    public function comprarDirecto(Request $request)
+    {
+        // 1. Validar datos de entrada
+        $request->validate([
+            'id_producto' => 'required|exists:productos,id_producto',
+            'cantidad' => 'required|integer|min:1',
+        ]);
+
+        $userId = Auth::id();
+        if (!$userId) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión para completar la compra.');
+        }
+
+        $idProducto = $request->id_producto;
+        $cantidad = $request->cantidad;
+        
+        // 2. Obtener el precio actual del producto (siempre desde la DB, no del HTML)
+        $producto = Producto::find($idProducto);
+        if (!$producto) {
+            return redirect()->back()->with('error', 'Producto no encontrado o inválido.');
+        }
+
+        // Validar stock antes de empezar la transacción (doble chequeo)
+        if ($cantidad > $producto->stock) {
+            return redirect()->back()->with('error', 'Lo sentimos, la cantidad solicitada (' . $cantidad . ') excede el stock disponible (' . $producto->stock . ').');
+        }
+
+        $precioUnitario = $producto->precio;
+
+        // 3. Iniciar la transacción para asegurar atomicidad
+        DB::beginTransaction();
+
+        try {
+            // 4. Crear el Pedido principal
+            $nuevoPedido = Pedido::create([
+                'Usuarios_id_usuario' => $userId,
+                'estado' => 'pendiente',
+            ]);
+
+            // 5. Crear el Pedido Detalle para el único producto comprado
+            PedidoDetalle::create([
+                'pedidos_id_pedidos' => $nuevoPedido->id_pedidos,
+                'productos_id_producto' => $idProducto,
+                'cantidad' => $cantidad,
+                'precio_unitario' => $precioUnitario,
+            ]);
+            
+            // *** INICIO: Lógica para descontar stock ***
+            $producto->stock -= $cantidad;
+            $producto->save();
+            // *** FIN: Lógica para descontar stock ***
+
+            // 6. Confirmar la transacción
+            DB::commit();
+
+            // 7. Redirigir a una vista de éxito o de listado de pedidos
+            return redirect()->back() 
+                             ->with('success', "¡Compra directa exitosa! Tu pedido simple (#{$nuevoPedido->id_pedidos}) ha sido procesado y el stock actualizado.");
+
+        } catch (\Exception $e) {
+            // 8. Revertir y loguear
+            DB::rollBack();
+
+            Log::error("Error al procesar compra directa para el usuario {$userId}: " . $e->getMessage());
+            
+            return redirect()->back()->with('error', 'Error al procesar la compra directa. Inténtalo de nuevo. Error: ' . $e->getMessage());
+        }
+    }
+
     public function desplegarpedidos()
     {
-         if (!session()->has('id_usuario')) {
+        // Lógica de desplegar pedidos (aún por implementar)
+        if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         

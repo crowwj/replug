@@ -37,9 +37,6 @@ Route::middleware(['web'])->group(function () {
         return view('contenido.micuenta');
     }) -> name('micuenta');
 
-
-
-
      Route::get('/datoscuenta', function () {
         if (!session()->has('id_usuario')) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
@@ -68,6 +65,8 @@ Route::middleware(['web'])->group(function () {
     Route::delete('/carrito/{id}', [CarritoController::class, 'eliminarproducto'])->name('eliminarproducto');
     Route::post('/carrito/confirmar-compra', [CarritoController::class, 'confirmarCompra'])
     ->name('carrito.confirmar');
+    Route::post('/compra/directa', [CarritoController::class, 'comprarDirecto'])
+    ->name('compra.directa');
     Route::get('/pedido', [CarritoController::class, 'desplegarpedidos'])->name('desplegarpedidos');
 
     Route::get('/menuDirecciones', function () {
