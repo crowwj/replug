@@ -33,7 +33,7 @@
                 <p class="Stockcolor" style="font-size:24px">Stock: {{$producto->stock  }}</p>
             </div>
             <div class="descripcionEnvioEntrega">
-                <p class="DescripcionEnvioDia" style="margin:-1px;">El envio llegare entre el miercoles y sabado</p>
+                <p class="DescripcionEnvioDia" style="margin:-1px;">El envio llegara entre el miercoles y sabado</p>
                 <div class="Enviogratis">
                 <i class="fa-solid fa-truck"></i>
                  <p class="DescripcionEnvioGratis" style="margin:-0.7px">Envios gratis</p>
@@ -48,6 +48,7 @@
                     <input type="hidden" name="id_producto" value="{{ $producto->id_producto }}">
                     <input type="hidden" name="precio" value="{{ $producto->precio }}">
                     <input type="hidden" name="id_carrito" value="{{ $carrito->id_carrito }}">
+                    <input type="hidden" name="cantidadT" value="{{ $producto->stock }}">
                     <div class="qty-dropdown-container" id="qty-selector-container">    {{--Contenedor del combobox de unidades disponibles--}}
                         <div id="qty-display-header">
                             Cantidad: <span id="current-qty">1</span> unidad
@@ -55,9 +56,9 @@
                             <span style="margin-left: 5px;">&#9662;</span>
                         </div>
 
-                    <!-- 2. Menú desplegable -->
+                    <!-- Menu desplegable -->
                     <div class="qty-dropdown-menu" id="qty-dropdown-menu">
-                        <!-- Opciones predefinidas (hasta 5, por ejemplo) -->
+                        
                         <div class="qty-option" data-qty="1">1 unidad</div>
                         <div class="qty-option" data-qty="2">2 unidades</div>
                         <div class="qty-option" data-qty="3">3 unidades</div>

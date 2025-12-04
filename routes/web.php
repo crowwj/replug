@@ -60,22 +60,15 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         return view('contenido.direcciones');
-        })-> name('direcciones');
+    })-> name('direcciones');
 
 
-     Route::get('/carrito', function () {
-        if (!session()->has('id_usuario')) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-        }
-        return view('contenido.carrito');
-    });
-
-    Route::get('/pedido', function () {
-        if (!session()->has('id_usuario')) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
-        }
-        return view('contenido.pedido');
-    }) -> name('pedido');
+    Route::get('/carrito', [CarritoController::class, 'desplegarproductos'])->name('desplegar');
+    Route::post('/carrito/actualizar-cantidad', [CarritoController::class, 'actualizarCantidad'])->name('carrito.actualizar_cantidad');
+    Route::delete('/carrito/{id}', [CarritoController::class, 'eliminarproducto'])->name('eliminarproducto');
+    Route::post('/carrito/confirmar-compra', [CarritoController::class, 'confirmarCompra'])
+    ->name('carrito.confirmar');
+    Route::get('/pedido', [CarritoController::class, 'desplegarpedidos'])->name('desplegarpedidos');
 
     Route::get('/menuDirecciones', function () {
         if (!session()->has('id_usuario')) {
