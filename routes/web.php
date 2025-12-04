@@ -68,6 +68,10 @@ Route::middleware(['web'])->group(function () {
     Route::post('/compra/directa', [CarritoController::class, 'comprarDirecto'])
     ->name('compra.directa');
     Route::get('/pedido', [CarritoController::class, 'desplegarpedidos'])->name('desplegarpedidos');
+    Route::get('/pedidos/{id}', [CarritoController::class, 'mostrarDetallePedido'])->name('pedido.detalle');
+
+    Route::post('/datoscuenta', [UsuarioController::class, 'actualizarDatos'])->name('usuario.actualizar');
+    Route::post('/mi-cuenta/cambiar-contrasena', [UsuarioController::class, 'cambiarContrasena'])->name('usuario.cambiar_contrasena');
 
     Route::get('/menuDirecciones', function () {
         if (!session()->has('id_usuario')) {

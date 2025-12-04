@@ -28,37 +28,69 @@
 
     <div class="SeguridadPadre">
         <div class="cuerpoSeguridad ">
-            <div class="seguridadTitulo card">
-                <h3><i class="fas fa-lock me-2"></i>Seguridad de la cuenta</h3>
-                    <p>Actualiza o modifica tu contraseña de la cuenta.</p>
-            </div>
-            <div class="seguridad card">
-               <div class="input-group mb-3">
+    {{-- Formulario para cambiar la contraseña --}}
+    <form action="{{ route('usuario.cambiar_contrasena') }}" method="POST">
+        @csrf {{-- Token de seguridad obligatorio de Laravel --}}
+
+        <div class="seguridadTitulo card">
+            <h3><i class="fas fa-lock me-2"></i>Seguridad de la cuenta</h3>
+            <p>Actualiza o modifica tu contraseña de la cuenta.</p>
+        </div>
+
+        <div class="seguridad card">
+            {{-- CAMPO 1: Contraseña Actual --}}
+            <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                <input type="password" class="form-control" id="floatingInput" placeholder="">
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    name="password_actual" 
+                    placeholder="Contraseña Actual" 
+                    required
+                >
             </div>
 
+            {{-- CAMPO 2: Nueva Contraseña --}}
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" id="floatingInput" placeholder="Nueva contraseña">
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    name="password" {{-- Nombre del campo principal para la nueva contraseña --}}
+                    placeholder="Nueva contraseña" 
+                    required
+                >
             </div>
 
+            {{-- CAMPO 3: Confirmar Nueva Contraseña --}}
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fas fa-check-circle"></i></span>
-                <input type="password" class="form-control" id="floatingInput" placeholder="Confirmar contraseña">
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    name="password_confirmation" {{-- Nombre necesario para que funcione la validación 'confirmed' de Laravel --}}
+                    placeholder="Confirmar contraseña" 
+                    required
+                >
             </div>
 
-                <div class="opcionesSeguridad">
-                    <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Guardar contraseña</button>
-                    <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Modificar contraseña</button>
-                     <a href="{{ route('micuenta')}}">
-                     <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">Regresar</button>
-                     </a>
-                </div>
+            <div class="opcionesSeguridad">
+                {{-- Botón de envío del formulario --}}
+                <button class="btn btn-primary" type="submit" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">
+                    Guardar contraseña
+                </button>
                 
+                {{-- Botón de Regresar --}}
+                <a href="{{ route('micuenta')}}">
+                    {{-- Usamos type="button" para evitar que envíe el formulario por error --}}
+                    <button class="btn btn-primary" type="button" style="background-color: #422e60; padding: 10px;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  border: none;">
+                        Regresar
+                    </button>
+                </a>
             </div>
-
         </div>
+    </form>
+</div>
 
         <div class="reglamentoSeguridad card">
             <h3><i class="fas fa-shield-alt me-2"></i>Reglamento de seguridad</h3>

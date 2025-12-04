@@ -25,7 +25,8 @@
                     <form id="logout-form" action="{{ route('cerrarsesion') }}" method="POST" class="d-none">@csrf</form>   
             </div>
             </div>
-   </div> </nav>
+    </nav>
+</div> 
 
   {{-- Contenido --}}
   <div class="contenido"> 

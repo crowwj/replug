@@ -376,10 +376,53 @@ class CarritoController extends Controller
 
     public function desplegarpedidos()
     {
-        // Lógica de desplegar pedidos (aún por implementar)
-        if (!session()->has('id_usuario')) {
+        $userId = Auth::id() ?? session('id_usuario'); 
+        
+        if (!$userId) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión.');
         }
         
+        // Carga los pedidos usando la relación 'detalles' y la sub-relación 'producto'
+        $pedidos = Pedido::with('detalles.producto')
+                        ->where('Usuarios_id_usuario', $userId)
+                        ->orderByDesc('id_pedidos') 
+                        ->get();
+        
+        return view('contenido.Pedido', compact('pedidos'));
     }
+
+    public function mostrarDetallePedido($id)
+{
+    $userId = Auth::id();
+
+    if (!$userId) {
+        // Redirige si no está autenticado.
+        return redirect()->route('login')->with('error', 'Debes iniciar sesión para ver tus pedidos.');
+    }
+
+    try {
+        // CORRECCIÓN CLAVE: Usamos 'Usuarios_id_usuario' que es la clave definida en tu modelo Pedido.
+        // Y cargamos las relaciones anidadas: detalles -> producto.
+        $pedido = Pedido::where('id_pedidos', $id)
+                        ->where('Usuarios_id_usuario', $userId) // <--- ¡CORREGIDO!
+                        ->with(['detalles.producto']) 
+                        ->firstOrFail(); 
+        
+        // Ahora cargamos la vista con el objeto $pedido.
+        return view('contenido.PedidoDetalle', compact('pedido'));
+
+    } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        // Esto se activa si el pedido no existe o no pertenece al usuario.
+        return redirect()->route('desplegarpedidos')->with('error', 'El detalle de la compra solicitada no existe o no tienes permiso para verla.');
+    } catch (\Exception $e) {
+        // Manejo de otros errores (p.ej., problemas en la relación si persiste el error inicial).
+        // El mensaje de error ahora es más informativo si llegamos aquí.
+        $errorMessage = 'Ocurrió un error al cargar el detalle del pedido. Mensaje Técnico: ' . $e->getMessage();
+        
+        // Registro detallado del error en los logs.
+        Log::error("Error al cargar detalle del pedido #$id: " . $e->getMessage() . " en " . $e->getFile() . " línea " . $e->getLine());
+
+        return redirect()->route('desplegarpedidos')->with('error', $errorMessage);
+    }
+}
 }
