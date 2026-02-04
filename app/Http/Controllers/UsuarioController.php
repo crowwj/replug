@@ -12,37 +12,49 @@ use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
 {
-    // Mostrar el formulario
+
     public function RegistroFormulario()
     {
         return view('registrousuario');
     }
 
-    // procesar registro
     public function Registro(Request $request)
     {
-        // Se validan los datos ingresados en el form
-        $request->validate([
-            'email' => 'required|email|unique:users,email',
-            'telefono' => 'required|string',
-            'nombre' => 'required|string|max:100',
-            'contrasena' => 'required|min:8',
-            'terminosycondiciones' => 'accepted'
-        ]);
+        $validated = $request->validate(
+            [
+                'email' => 'required|email|unique:usuarios,correo',
+                'telefono' => 'required|string',
+                'nombre' => 'required|string|max:100',
+                'contrasena' => 'required|min:8',
+                'terminosycondiciones' => 'accepted',
+            ],
+            [
+                'email.required' => 'El correo es obligatorio.',
+                'email.email' => 'El correo no es válido.',
+                'email.unique' => 'Ya existe una cuenta con este correo.',
 
-        $usuario = User::create([
-            'nombre' => $request->input('nombre'),
-            'correo' => $request->input('email'),
-            'telefono' => $request->input('telefono'),
-            'contrasena' => Hash::make($request->input('contrasena')),
-        ]);
+                'telefono.required' => 'El teléfono es obligatorio.',
+                'telefono.string' => 'El teléfono no es válido.',
 
-        carrito::create([
-            'fecha_creacion' => Carbon::now(),
-            'Usuarios_id_usuario' => $usuario->id_usuario,
-        ]);
+                'nombre.required' => 'El nombre es obligatorio.',
+                'nombre.max' => 'Intenta insertar un solo nombre.',
 
-        return redirect()->route('login')->with('success', 'Usuario registrado correctamente');
+                'contrasena.required' => 'La contraseña es obligatoria.',
+                'contrasena.min' => 'La contraseña debe incluir al menos 8 caracteres.',
+            ]);
+
+            $usuario = User::create([
+                'nombre' => $request->input('nombre'),
+                'correo' => $request->input('email'),
+                'telefono' => $request->input('telefono'),
+                'contrasena' => Hash::make($request->input('contrasena')),
+            ]);
+            carrito::create([
+                'fecha_creacion' => Carbon::now(),
+                'Usuarios_id_usuario' => $usuario->id_usuario,
+            ]);
+
+            return redirect()->route('login')->with('success', 'Usuario registrado correctamente');
     }
 
     public function InicioSesionFormulario()
@@ -50,41 +62,27 @@ class UsuarioController extends Controller
         return view('formulario');
     }
 
-    public function InicioSesion(Request $request)
-    {
-    $credentials = $request->validate([//validamos datos resuperados
-        'correo' => ['required', 'email'],
-        'contrasena' => ['required']
-        ]);
-        if (Auth::attempt([//compara en la bd
-        'correo' => $credentials['correo'],
-        'password' => $credentials['contrasena'],
-        ])) {
-                $request->session()->regenerate();//regenera token de sesion
+    public function InicioSesion(Request $request){
+        $credentials = $request->validate(
+            ['correo' => ['required', 'email'],'contrasena' => ['required']],
+            ['correo.required' => 'El correo es obligatorio.','contrasena.required' => 'La contraseña es obligatoria.']);
 
+            if(Auth::attempt(['correo' => $credentials['correo'],'password' => $credentials['contrasena'],])) {
+                $request->session()->regenerate();//regenera token de sesion
                 $user = auth()->user();//fuerza la creacion de usuario
                 Auth::login($user, true);        // <--- clave
-                $request->session()->put('id_usuario', auth()->user()->id_usuario); // tu sesión personalizada
-                //dd(auth()->user(), session()->all()); debug
+                $request->session()->put('id_usuario', auth()->user()->id_usuario); // token con el valor del id del usuario mientras la sesion este activa.
                 return redirect()->route('productosbusqueda');
             }
-    // datos incorrectos
-    return back()->withErrors([
-        'correo' => 'Las credenciales no coinciden.',
-    ])->withInput($request->except('contrasena'));
+
+            return back()->with('error', 'Las credenciales no coinciden.')->withInput($request->except('contrasena'));
     }
 
-    public function CerrarSesion(Request $request)
-    {
-
-    Auth::logout();
-
-    $request->session()->invalidate();// invalida token de sesion
-
-    $request->session()->regenerateToken(); //regenera toquen encargado de recolectar datos en forms (CSRF)
-
-    return redirect()->route('login')->with('success', 'Sesión cerrada correctamente');
-    
+    public function CerrarSesion(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();// invalida token de sesion
+        $request->session()->regenerateToken(); //regenera toquen encargado de recolectar datos en forms (CSRF)
+        return redirect()->route('login')->with('success', 'Sesión cerrada correctamente');
     }
 
     public function actualizarDatos(Request $request)
